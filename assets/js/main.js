@@ -145,66 +145,101 @@ window.hexesApp = {
     scrollToElement: scrollToElement
 };
 
-// Tooltip functionality for touch devices and better positioning
+// Tooltip functionality optimized for both desktop and mobile
 function initTooltips() {
     const powerElements = document.querySelectorAll('.hex-power[data-tooltip]');
     
+    // Variable para rastrear el tooltip activo en móvil
+    let activeMobileTooltip = null;
+    
     powerElements.forEach(element => {
-        // Manejo de hover avanzado
+        // Manejo de hover para desktop
         element.addEventListener('mouseenter', function(e) {
             const tooltip = this.getAttribute('data-tooltip');
             
-            // Crear un elemento temporal para el tooltip
+            // Crear tooltip
             const tooltipEl = document.createElement('div');
             tooltipEl.className = 'tooltip-popup';
             tooltipEl.textContent = tooltip;
             document.body.appendChild(tooltipEl);
             
-            // Posicionar el tooltip cerca del cursor pero sin superponerse
+            // Posicionar tooltip
             const updatePosition = (e) => {
                 tooltipEl.style.left = (e.clientX + 10) + 'px';
                 tooltipEl.style.top = (e.clientY - tooltipEl.offsetHeight - 10) + 'px';
             };
             
-            // Posición inicial
             updatePosition(e);
-            
-            // Actualizar posición al mover el ratón
             this.addEventListener('mousemove', updatePosition);
             
-            // Limpiar al salir
+            // Eliminar al salir
             this.addEventListener('mouseleave', function() {
                 document.body.removeChild(tooltipEl);
                 this.removeEventListener('mousemove', updatePosition);
             }, { once: true });
         });
         
-        // Manejo táctil
+        // Manejo de eventos táctiles específico para móviles
         element.addEventListener('touchstart', function(e) {
+            // Importante: Prevenir el comportamiento predeterminado
             e.preventDefault();
             
+            // Eliminar cualquier tooltip activo
+            if (activeMobileTooltip) {
+                document.body.removeChild(activeMobileTooltip);
+                activeMobileTooltip = null;
+            }
+            
+            // Obtener el texto del tooltip
             const tooltip = this.getAttribute('data-tooltip');
             
-            // Remover cualquier tooltip existente
-            const existingTooltips = document.querySelectorAll('.tooltip-popup');
-            existingTooltips.forEach(el => el.remove());
-            
-            // Crear nuevo tooltip
+            // Crear el tooltip
             const tooltipEl = document.createElement('div');
-            tooltipEl.className = 'tooltip-popup';
+            tooltipEl.className = 'tooltip-popup mobile-tooltip';
             tooltipEl.textContent = tooltip;
             document.body.appendChild(tooltipEl);
             
-            // Posicionar el tooltip
-            const rect = this.getBoundingClientRect();
-            tooltipEl.style.left = rect.left + (rect.width / 2) - (tooltipEl.offsetWidth / 2) + 'px';
-            tooltipEl.style.top = rect.top - tooltipEl.offsetHeight - 10 + 'px';
+            // Guardar referencia al tooltip activo
+            activeMobileTooltip = tooltipEl;
             
-            // Cerrar al tocar en cualquier parte
-            document.addEventListener('touchstart', function closeTooltip() {
-                tooltipEl.remove();
-                document.removeEventListener('touchstart', closeTooltip);
-            }, { once: true });
+            // Posicionar el tooltip a un lugar visible cerca del elemento
+            const rect = this.getBoundingClientRect();
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+            
+            tooltipEl.style.left = centerX - (tooltipEl.offsetWidth / 2) + 'px';
+            tooltipEl.style.top = centerY - (tooltipEl.offsetHeight / 2) + 'px';
+            
+            // Añadir un botón de cierre explícito para móviles
+            const closeButton = document.createElement('button');
+            closeButton.textContent = '×';
+            closeButton.className = 'tooltip-close-btn';
+            tooltipEl.appendChild(closeButton);
+            
+            closeButton.addEventListener('touchstart', function(e) {
+                e.stopPropagation();
+                if (activeMobileTooltip) {
+                    document.body.removeChild(activeMobileTooltip);
+                    activeMobileTooltip = null;
+                }
+            });
+            
+            // También cerrar al tocar fuera (con delay para evitar cierre inmediato)
+            setTimeout(() => {
+                document.addEventListener('touchstart', function handleTouch(e) {
+                    // No cerrar si se toca el tooltip
+                    if (e.target === tooltipEl || tooltipEl.contains(e.target)) {
+                        return;
+                    }
+                    
+                    if (activeMobileTooltip) {
+                        document.body.removeChild(activeMobileTooltip);
+                        activeMobileTooltip = null;
+                    }
+                    
+                    document.removeEventListener('touchstart', handleTouch);
+                });
+            }, 100);
         });
     });
 }
