@@ -145,22 +145,66 @@ window.hexesApp = {
     scrollToElement: scrollToElement
 };
 
-// Tooltip functionality for touch devices
+// Tooltip functionality for touch devices and better positioning
 function initTooltips() {
     const powerElements = document.querySelectorAll('.hex-power[data-tooltip]');
     
     powerElements.forEach(element => {
+        // Manejo de hover avanzado
+        element.addEventListener('mouseenter', function(e) {
+            const tooltip = this.getAttribute('data-tooltip');
+            
+            // Crear un elemento temporal para el tooltip
+            const tooltipEl = document.createElement('div');
+            tooltipEl.className = 'tooltip-popup';
+            tooltipEl.textContent = tooltip;
+            document.body.appendChild(tooltipEl);
+            
+            // Posicionar el tooltip cerca del cursor pero sin superponerse
+            const updatePosition = (e) => {
+                tooltipEl.style.left = (e.clientX + 10) + 'px';
+                tooltipEl.style.top = (e.clientY - tooltipEl.offsetHeight - 10) + 'px';
+            };
+            
+            // Posición inicial
+            updatePosition(e);
+            
+            // Actualizar posición al mover el ratón
+            this.addEventListener('mousemove', updatePosition);
+            
+            // Limpiar al salir
+            this.addEventListener('mouseleave', function() {
+                document.body.removeChild(tooltipEl);
+                this.removeEventListener('mousemove', updatePosition);
+            }, { once: true });
+        });
+        
+        // Manejo táctil
         element.addEventListener('touchstart', function(e) {
-            // Prevent default touch behavior
             e.preventDefault();
             
-            // Hide all other tooltips first
-            powerElements.forEach(el => {
-                el.classList.remove('tooltip-active');
-            });
+            const tooltip = this.getAttribute('data-tooltip');
             
-            // Toggle tooltip for this element
-            this.classList.toggle('tooltip-active');
+            // Remover cualquier tooltip existente
+            const existingTooltips = document.querySelectorAll('.tooltip-popup');
+            existingTooltips.forEach(el => el.remove());
+            
+            // Crear nuevo tooltip
+            const tooltipEl = document.createElement('div');
+            tooltipEl.className = 'tooltip-popup';
+            tooltipEl.textContent = tooltip;
+            document.body.appendChild(tooltipEl);
+            
+            // Posicionar el tooltip
+            const rect = this.getBoundingClientRect();
+            tooltipEl.style.left = rect.left + (rect.width / 2) - (tooltipEl.offsetWidth / 2) + 'px';
+            tooltipEl.style.top = rect.top - tooltipEl.offsetHeight - 10 + 'px';
+            
+            // Cerrar al tocar en cualquier parte
+            document.addEventListener('touchstart', function closeTooltip() {
+                tooltipEl.remove();
+                document.removeEventListener('touchstart', closeTooltip);
+            }, { once: true });
         });
     });
 }

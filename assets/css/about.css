@@ -24,7 +24,6 @@
     margin-bottom: 20px;
 }
 
-/* En about.css, modificar la imagen de about */
 .about-image {
     overflow: hidden;
     border-radius: 10px;
@@ -81,6 +80,23 @@
     opacity: 0.8;
 }
 
+.hex-power {
+    position: relative;
+    font-size: 0.7rem;
+    font-style: italic;
+    opacity: 0.9;
+    margin-top: 5px;
+    color: var(--accent-color);
+    transition: all 0.3s ease;
+    cursor: help;
+    border-bottom: 1px dotted var(--accent-color);
+}
+
+.hex-item:hover .hex-power {
+    color: var(--text-color);
+    font-weight: bold;
+}
+
 .hex-bg {
     position: absolute;
     width: 100%;
@@ -103,16 +119,29 @@
     background-image: url('../images/members/vocalist.jpg');
 }
 
-.hex-item[data-member="bassist"] .hex-bg {
-    background-image: url('../images/members/bassist.jpg');
-}
-
 .hex-item[data-member="drummer"] .hex-bg {
     background-image: url('../images/members/drummer.jpg');
 }
 
 .hex-item:hover .hex-bg {
     opacity: 0.5;
+}
+
+/* Tooltip popup personalizado */
+.tooltip-popup {
+    position: fixed;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    max-width: 200px;
+    text-align: center;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    box-shadow: 0 0 10px rgba(156, 39, 176, 0.5);
+    border: 1px solid var(--accent-color);
+    pointer-events: none;
 }
 
 @media (max-width: 992px) {
@@ -135,99 +164,10 @@
         height: 150px;
         margin: 15px;
     }
-}
-
-.hex-power {
-    font-size: 0.7rem;
-    font-style: italic;
-    opacity: 0.9;
-    margin-top: 5px;
-    color: var(--accent-color);
-    transition: all 0.3s ease;
-}
-
-.hex-item:hover .hex-power {
-    color: var(--text-color);
-    font-weight: bold;
-}
-
-/* Tooltip styles */
-.hex-power {
-    position: relative;
-    font-size: 0.7rem;
-    font-style: italic;
-    opacity: 0.9;
-    margin-top: 5px;
-    color: var(--accent-color);
-    transition: all 0.3s ease;
-    cursor: help;
-    border-bottom: 1px dotted var(--accent-color);
-}
-
-.hex-item:hover .hex-power {
-    color: var(--text-color);
-}
-
-/* Tooltip container */
-.hex-power[data-tooltip]:before {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 8px 12px;
-    background-color: rgba(0, 0, 0, 0.9);
-    color: white;
-    text-align: center;
-    border-radius: 6px;
-    width: 200px;
-    font-style: normal;
-    font-size: 0.8rem;
-    line-height: 1.4;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
-    z-index: 10;
-    box-shadow: 0 0 10px rgba(156, 39, 176, 0.5);
-    border: 1px solid var(--accent-color);
-}
-
-/* Tooltip arrow */
-.hex-power[data-tooltip]:after {
-    content: "";
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-bottom: -5px;
-    border-width: 5px;
-    border-style: solid;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
-    border-color: var(--accent-color) transparent transparent transparent;
-    z-index: 10;
-}
-
-/* Show tooltip on hover */
-.hex-power[data-tooltip]:hover:before,
-.hex-power[data-tooltip]:hover:after {
-    opacity: 1;
-    bottom: 130%;
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .hex-power[data-tooltip]:before {
-        width: 160px;
+    
+    .tooltip-popup {
+        max-width: 160px;
         font-size: 0.7rem;
         padding: 6px 10px;
     }
-}
-
-/* Touch device support */
-.hex-power.tooltip-active:before,
-.hex-power.tooltip-active:after {
-    opacity: 1;
-    bottom: 130%;
 }
