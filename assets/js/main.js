@@ -144,3 +144,31 @@ function scrollToElement(element) {
 window.hexesApp = {
     scrollToElement: scrollToElement
 };
+
+// Tooltip functionality for touch devices
+function initTooltips() {
+    const powerElements = document.querySelectorAll('.hex-power[data-tooltip]');
+    
+    powerElements.forEach(element => {
+        element.addEventListener('touchstart', function(e) {
+            // Prevent default touch behavior
+            e.preventDefault();
+            
+            // Hide all other tooltips first
+            powerElements.forEach(el => {
+                el.classList.remove('tooltip-active');
+            });
+            
+            // Toggle tooltip for this element
+            this.classList.toggle('tooltip-active');
+        });
+    });
+}
+
+// Add this to your existing initialization
+document.addEventListener('DOMContentLoaded', function() {
+    // Existing code...
+    
+    // Initialize tooltips
+    initTooltips();
+});

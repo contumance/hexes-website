@@ -46,25 +46,23 @@ const CONFIG = {
             "Our mission is to create not just music, but a complete experience that envelops our followers in a world of symbolism and sonic power."
         ],
         members: {
-            guitarist: {
-                title: "Guitarist",
-                name: "Alex Hexcraft",
-                image: "assets/images/members/guitarist.jpg"
-            },
             vocalist: {
                 title: "Vocalist",
-                name: "Morgan Shadowvoice",
+                name: "Ale",
+                power: "The Summoner",
                 image: "assets/images/members/vocalist.jpg"
-            },
-            bassist: {
-                title: "Bassist",
-                name: "Jordan Lowend",
-                image: "assets/images/members/bassist.jpg"
             },
             drummer: {
                 title: "Drummer",
-                name: "Taylor Thunderbeats",
+                name: "Edo",
+                power: "Rhythm Sorcerer",
                 image: "assets/images/members/drummer.jpg"
+            },
+            guitarist: {
+                title: "Guitarist",
+                name: "Al",
+                power: "String Hexer",
+                image: "assets/images/members/guitarist.jpg"
             }
         }
     },
