@@ -1,0 +1,137 @@
+/* about.css - About section styles */
+.about-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    align-items: center;
+}
+
+.about-content {
+    background-color: rgba(20, 20, 20, 0.7);
+    padding: 40px;
+    border-radius: 10px;
+    border: 1px solid rgba(156, 39, 176, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.about-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.about-content p {
+    margin-bottom: 20px;
+}
+
+.about-image {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(156, 39, 176, 0.2);
+    height: 100%;
+    min-height: 400px;
+    background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('../images/background/band-image.jpg') center/cover no-repeat;
+}
+
+/* Hexagon grid for team members */
+.hex-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 50px 0;
+}
+
+.hex-item {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 25px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background-color: rgba(20, 20, 20, 0.7);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hex-item:hover {
+    transform: scale(1.05);
+    background-color: var(--accent-color);
+}
+
+.hex-content {
+    text-align: center;
+    z-index: 2;
+    padding: 20px;
+}
+
+.hex-title {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.hex-subtitle {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.hex-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0.3;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 0.3s ease;
+}
+
+/* Set background images for each member's hexagon */
+.hex-item[data-member="guitarist"] .hex-bg {
+    background-image: url('../images/members/guitarist.jpg');
+}
+
+.hex-item[data-member="vocalist"] .hex-bg {
+    background-image: url('../images/members/vocalist.jpg');
+}
+
+.hex-item[data-member="bassist"] .hex-bg {
+    background-image: url('../images/members/bassist.jpg');
+}
+
+.hex-item[data-member="drummer"] .hex-bg {
+    background-image: url('../images/members/drummer.jpg');
+}
+
+.hex-item:hover .hex-bg {
+    opacity: 0.5;
+}
+
+@media (max-width: 992px) {
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-image {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        padding: 20px;
+    }
+    
+    .hex-item {
+        width: 150px;
+        height: 150px;
+        margin: 15px;
+    }
+}

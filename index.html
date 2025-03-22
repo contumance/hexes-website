@@ -3,579 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HEXES - Modern metal band that fuses intensity with mystical and conceptual elements">
     <title>HEXES - Modern Metal</title>
-    <style>
-        :root {
-            --primary-color: #0f0f0f;
-            --accent-color: #9c27b0;
-            --secondary-accent: #673ab7;
-            --text-color: #e0e0e0;
-            --dark-shadow: rgba(0, 0, 0, 0.8);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        body {
-            background-color: var(--primary-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-            background-image: radial-gradient(var(--dark-shadow) 1px, transparent 1px);
-            background-size: 30px 30px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('/api/placeholder/1200/800') center/cover no-repeat;
-        }
-        
-        .logo {
-            max-width: 300px;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 10px var(--accent-color));
-        }
-        
-        .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            font-weight: 300;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-        
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
-            transition: all 0.3s ease;
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-        
-        .nav-logo {
-            font-size: 2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--accent-color);
-            text-decoration: none;
-            letter-spacing: 2px;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-        
-        .nav-links a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent-color);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        .mobile-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* Sections */
-        section {
-            padding: 100px 0;
-            position: relative;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 60px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            position: relative;
-            color: var(--accent-color);
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 70px;
-            height: 3px;
-            background-color: var(--accent-color);
-        }
-        
-        /* Social Media Section */
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .social-card {
-            background-color: rgba(20, 20, 20, 0.7);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(156, 39, 176, 0.2);
-        }
-        
-        .social-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(156, 39, 176, 0.3);
-        }
-        
-        .social-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-bottom: 2px solid var(--accent-color);
-        }
-        
-        .social-content {
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .social-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--accent-color);
-        }
-        
-        .social-content p {
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            color: var(--text-color);
-            opacity: 0.8;
-        }
-        
-        .social-button {
-            display: inline-block;
-            padding: 10px 25px;
-            background-color: var(--accent-color);
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-        }
-        
-        .social-button:hover {
-            background-color: var(--secondary-accent);
-            transform: scale(1.05);
-        }
-        
-        /* About Section */
-        .about-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 50px;
-            align-items: center;
-        }
-        
-        .about-content {
-            background-color: rgba(20, 20, 20, 0.7);
-            padding: 40px;
-            border-radius: 10px;
-            border: 1px solid rgba(156, 39, 176, 0.2);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .about-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--accent-color);
-        }
-        
-        .about-content p {
-            margin-bottom: 20px;
-        }
-        
-        .about-image {
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(156, 39, 176, 0.2);
-            height: 100%;
-            min-height: 400px;
-            background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('/api/placeholder/600/800') center/cover no-repeat;
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 0.5s ease;
-        }
-        
-        /* Tarot Section */
-        .tarot-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .tarot-description {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .tarot-card {
-            width: 300px;
-            height: 450px;
-            perspective: 1000px;
-            margin: 0 auto;
-        }
-        
-        .tarot-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-            cursor: pointer;
-        }
-        
-        .tarot-card:hover .tarot-inner {
-            transform: rotateY(180deg);
-        }
-        
-        .tarot-front, .tarot-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 2px solid var(--accent-color);
-        }
-        
-        .tarot-front {
-            background-color: var(--secondary-accent);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-image: url('/api/placeholder/300/450');
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .tarot-back {
-            background-color: rgba(20, 20, 20, 0.9);
-            transform: rotateY(180deg);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        
-        .tarot-title {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--accent-color);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .tarot-message {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-        
-        .tarot-symbol {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 20px;
-        }
-        
-        .tarot-quote {
-            font-style: italic;
-            font-size: 0.9rem;
-            margin-top: 20px;
-            opacity: 0.8;
-        }
-        
-        .random-button {
-            margin-top: 40px;
-            padding: 12px 30px;
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .random-button:hover {
-            background-color: var(--secondary-accent);
-            transform: scale(1.05);
-        }
-        
-        /* Media Queries */
-        @media (max-width: 992px) {
-            .about-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .about-image {
-                order: -1;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                flex-direction: column;
-                gap: 0;
-                padding: 0;
-                height: 0;
-                overflow: hidden;
-                background-color: rgba(0,0,0,0.9);
-                transition: all 0.5s ease;
-            }
-            
-            .nav-links.active {
-                height: auto;
-                padding: 20px 0;
-            }
-            
-            .nav-links a {
-                padding: 15px 0;
-                display: block;
-                text-align: center;
-            }
-            
-            .mobile-toggle {
-                display: block;
-            }
-            
-            .social-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .about-content {
-                padding: 20px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .logo {
-                max-width: 200px;
-            }
-            
-            .tarot-card {
-                width: 260px;
-                height: 390px;
-            }
-        }
-        
-        /* Hexagon Shape Classes */
-        .hex-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 50px 0;
-        }
-        
-        .hex-item {
-            position: relative;
-            width: 200px;
-            height: 200px;
-            margin: 25px;
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            background-color: rgba(20, 20, 20, 0.7);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-        
-        .hex-item:hover {
-            transform: scale(1.05);
-            background-color: var(--accent-color);
-        }
-        
-        .hex-content {
-            text-align: center;
-            z-index: 2;
-            padding: 20px;
-        }
-        
-        .hex-title {
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
-        
-        .hex-subtitle {
-            font-size: 0.8rem;
-            opacity: 0.8;
-        }
-        
-        .hex-bg {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            opacity: 0.3;
-            background-size: cover;
-            background-position: center;
-            transition: opacity 0.3s ease;
-        }
-        
-        .hex-item:hover .hex-bg {
-            opacity: 0.5;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: rgba(0,0,0,0.9);
-            padding: 50px 0;
-            text-align: center;
-        }
-        
-        .footer-logo {
-            font-size: 2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
-        
-        .footer-nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
-        }
-        
-        .footer-nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-nav a:hover {
-            color: var(--accent-color);
-        }
-        
-        .footer-social {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .footer-social a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255,255,255,0.1);
-            color: var(--text-color);
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-social a:hover {
-            background-color: var(--accent-color);
-            color: white;
-            transform: translateY(-5px);
-        }
-        
-        .copyright {
-            margin-top: 20px;
-            font-size: 0.8rem;
-            opacity: 0.7;
-        }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/navigation.css">
+    <link rel="stylesheet" href="assets/css/social.css">
+    <link rel="stylesheet" href="assets/css/about.css">
+    <link rel="stylesheet" href="assets/css/tarot.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
+    <nav id="main-nav">
         <div class="container nav-container">
             <a href="#" class="nav-logo">HEXES</a>
             <div class="nav-links">
@@ -590,11 +41,11 @@
     </nav>
     
     <!-- Header/Hero Section -->
-    <header>
+    <header id="hero">
         <div class="container">
-            <img src="/api/placeholder/300/200" alt="HEXES Logo" class="logo">
-            <h2 class="tagline">Modern metal cult</h2>
-            <a href="#social" class="social-button">Discover our world</a>
+            <img src="assets/images/logo/hexes-logo.png" alt="HEXES Logo" class="logo">
+            <h2 class="tagline">Conjuring modern metal</h2>
+            <a href="#social" class="cta-button">Discover our world</a>
         </div>
     </header>
     
@@ -604,7 +55,7 @@
             <h2 class="section-title">Follow Us</h2>
             <div class="social-grid">
                 <div class="social-card">
-                    <img src="/api/placeholder/400/200" alt="Instagram">
+                    <img src="assets/images/social/instagram.jpg" alt="Instagram">
                     <div class="social-content">
                         <h3>Instagram</h3>
                         <p>Exclusive images, daily stories, and visual content from the world of HEXES.</p>
@@ -612,7 +63,7 @@
                     </div>
                 </div>
                 <div class="social-card">
-                    <img src="/api/placeholder/400/200" alt="YouTube">
+                    <img src="assets/images/social/youtube.jpg" alt="YouTube">
                     <div class="social-content">
                         <h3>YouTube</h3>
                         <p>Music videos, live sessions, and exclusive behind-the-scenes content.</p>
@@ -620,7 +71,7 @@
                     </div>
                 </div>
                 <div class="social-card">
-                    <img src="/api/placeholder/400/200" alt="Spotify">
+                    <img src="assets/images/social/spotify.jpg" alt="Spotify">
                     <div class="social-content">
                         <h3>Spotify</h3>
                         <p>Listen to our songs, curated playlists, and exclusive previews.</p>
@@ -642,25 +93,32 @@
                     <p>Each member brings their own "hexagon" of influences, creating a sound that is both brutal and melodic, both technical and accessible.</p>
                     <p>Our mission is to create not just music, but a complete experience that envelops our followers in a world of symbolism and sonic power.</p>
                     <div class="hex-container">
-                        <div class="hex-item">
-                            <div class="hex-bg" style="background-image: url('/api/placeholder/200/200')"></div>
-                            <div class="hex-content">
-                                <h4 class="hex-title">Vocalist</h4>
-                                <p class="hex-subtitle">Ale</p>
-                            </div>
-                        </div>
-                        <div class="hex-item">
-                            <div class="hex-bg" style="background-image: url('/api/placeholder/200/200')"></div>
-                            <div class="hex-content">
-                                <h4 class="hex-title">Drummer</h4>
-                                <p class="hex-subtitle">Edo</p>
-                            </div>
-                        </div>
-                        <div class="hex-item">
-                            <div class="hex-bg" style="background-image: url('/api/placeholder/200/200')"></div>
+                        <div class="hex-item" data-member="guitarist">
+                            <div class="hex-bg"></div>
                             <div class="hex-content">
                                 <h4 class="hex-title">Guitarist</h4>
-                                <p class="hex-subtitle">Al</p>
+                                <p class="hex-subtitle">Name</p>
+                            </div>
+                        </div>
+                        <div class="hex-item" data-member="vocalist">
+                            <div class="hex-bg"></div>
+                            <div class="hex-content">
+                                <h4 class="hex-title">Vocalist</h4>
+                                <p class="hex-subtitle">Name</p>
+                            </div>
+                        </div>
+                        <div class="hex-item" data-member="bassist">
+                            <div class="hex-bg"></div>
+                            <div class="hex-content">
+                                <h4 class="hex-title">Bassist</h4>
+                                <p class="hex-subtitle">Name</p>
+                            </div>
+                        </div>
+                        <div class="hex-item" data-member="drummer">
+                            <div class="hex-bg"></div>
+                            <div class="hex-content">
+                                <h4 class="hex-title">Drummer</h4>
+                                <p class="hex-subtitle">Name</p>
                             </div>
                         </div>
                     </div>
@@ -676,7 +134,7 @@
             <h2 class="section-title">Hexed Oracle</h2>
             <div class="tarot-container">
                 <div class="tarot-description">
-                    <p>Receive your daily message through our mystical tarot. Each card contains a unique message inspired by our music and philosophy.</p>
+                    <p>Receive your daily message through our mystical oracle. Each card contains a unique message inspired by our music and philosophy.</p>
                 </div>
                 <div class="tarot-card">
                     <div class="tarot-inner">
@@ -685,7 +143,7 @@
                         </div>
                         <div class="tarot-back">
                             <div class="tarot-symbol">
-                                <i class="fas fa-skull fa-3x" style="color: var(--accent-color);"></i>
+                                <i class="fas fa-skull fa-3x"></i>
                             </div>
                             <h3 class="tarot-title">The Spell</h3>
                             <p class="tarot-message">The energy you project to the universe returns to you multiplied. Examine your intentions and make sure they are aligned with your true self.</p>
@@ -718,121 +176,9 @@
         </div>
     </footer>
     
-    <script>
-        // Mobile Navigation Toggle
-        const mobileToggle = document.querySelector('.mobile-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        
-        mobileToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-        
-        // Smooth Scroll for Navigation Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80, // Adjust for fixed header
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                }
-            });
-        });
-        
-        // Tarot Card Random Generator
-        const randomButton = document.querySelector('.random-button');
-        const tarotTitle = document.querySelector('.tarot-title');
-        const tarotMessage = document.querySelector('.tarot-message');
-        const tarotQuote = document.querySelector('.tarot-quote');
-        const tarotSymbol = document.querySelector('.tarot-symbol');
-        
-        // Sample tarot cards data
-        const tarotCards = [
-            {
-                title: "The Spell",
-                message: "The energy you project to the universe returns to you multiplied. Examine your intentions and make sure they are aligned with your true self.",
-                quote: "What you give, you receive in eternal echo.",
-                symbol: "fas fa-skull"
-            },
-            {
-                title: "The Shadow",
-                message: "Face your fears and what you have been avoiding. In darkness, you will find answers that light cannot reveal.",
-                quote: "Only when you embrace your darkness, you find your true light.",
-                symbol: "fas fa-moon"
-            },
-            {
-                title: "The Ritual",
-                message: "Consistency and dedication are your allies now. Establish daily practices that bring you closer to your goals.",
-                quote: "Each action repeated with intention becomes power.",
-                symbol: "fas fa-fire"
-            },
-            {
-                title: "The Pact",
-                message: "It's time to honor your commitments and review what you have promised. Integrity is the foundation of your personal power.",
-                quote: "A promise is a chain that only you can break or strengthen.",
-                symbol: "fas fa-handshake"
-            },
-            {
-                title: "The Transformation",
-                message: "You are in a process of profound change. What you let go creates space for what is yet to come.",
-                quote: "From the ashes of the past, the wings of the future arise.",
-                symbol: "fas fa-dragon"
-            }
-        ];
-        
-        // Function to get random tarot card
-        function getRandomTarot() {
-            const randomIndex = Math.floor(Math.random() * tarotCards.length);
-            const card = tarotCards[randomIndex];
-            
-            // Update card content with animation
-            tarotTitle.style.opacity = 0;
-            tarotMessage.style.opacity = 0;
-            tarotQuote.style.opacity = 0;
-            tarotSymbol.style.opacity = 0;
-            
-            setTimeout(() => {
-                tarotTitle.textContent = card.title;
-                tarotMessage.textContent = card.message;
-                tarotQuote.textContent = `"${card.quote}"`;
-                tarotSymbol.innerHTML = `<i class="${card.symbol} fa-3x" style="color: var(--accent-color);"></i>`;
-                
-                tarotTitle.style.opacity = 1;
-                tarotMessage.style.opacity = 1;
-                tarotQuote.style.opacity = 1;
-                tarotSymbol.style.opacity = 1;
-            }, 300);
-            
-            // Flip card effect
-            const tarotInner = document.querySelector('.tarot-inner');
-            tarotInner.style.transform = 'rotateY(0deg)';
-            setTimeout(() => {
-                tarotInner.style.transform = 'rotateY(180deg)';
-            }, 300);
-        }
-        
-        // Event listener for random button
-        randomButton.addEventListener('click', getRandomTarot);
-        
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.padding = '5px 0';
-                nav.style.backgroundColor = 'rgba(0,0,0,0.95)';
-            } else {
-                nav.style.padding = '15px 0';
-                nav.style.backgroundColor = 'rgba(0,0,0,0.8)';
-            }
-        });
-    </script>
+    <!-- Scripts -->
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/tarot.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

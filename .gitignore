@@ -1,0 +1,31 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos de configuración de editores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Dependencias
+node_modules/
+vendor/
+
+# Archivos de construcción
+dist/
+build/
+*.log
+
+# Archivos de entorno
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Otros
+*.bak
+*.tmp
+*.swp
