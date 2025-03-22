@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Hexes website loaded');
     
     // Initialize animations
-    initAnimations();
+    //initAnimations();
     
     // Initialize loading of images (lazy loading)
     initImageLoading();
