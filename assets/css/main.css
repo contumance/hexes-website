@@ -109,12 +109,18 @@ section {
 
 /* Animation classes */
 .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 1; /* Cambiado de 0 a 1 */
+    transform: translateY(0); /* Cambiado de translateY(20px) a 0 */
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.fade-in.visible {
+/* Opcional: mantener animación cuando JS esté habilitado */
+.js-enabled .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.fade-in.visible, .js-enabled .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
 }

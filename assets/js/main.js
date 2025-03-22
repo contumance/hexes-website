@@ -1,5 +1,7 @@
 // main.js - Main JavaScript functionality
 
+document.documentElement.classList.add('js-enabled');
+
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Hexes website loaded');
