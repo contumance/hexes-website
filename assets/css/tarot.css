@@ -44,12 +44,13 @@
     border: 2px solid var(--accent-color);
 }
 
+/* En tarot.css, modificar el fondo de la carta */
 .tarot-front {
     background-color: var(--secondary-accent);
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('../images/tarot/card-back.jpg');
+    background-image: var(--card-back-image);
     background-size: cover;
     background-position: center;
 }

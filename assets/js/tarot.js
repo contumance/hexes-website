@@ -1,4 +1,4 @@
-// tarot.js - Tarot card functionality with JSON data loading
+// tarot.js - Versión actualizada para usar la configuración centralizada
 
 // DOM Elements
 const randomButton = document.querySelector('.random-button');
@@ -8,35 +8,8 @@ const tarotQuote = document.querySelector('.tarot-quote');
 const tarotSymbol = document.querySelector('.tarot-symbol');
 const tarotInner = document.querySelector('.tarot-inner');
 
-// Store tarot cards data
-let tarotCards = [];
-
-// Fetch tarot cards data
-async function fetchTarotCards() {
-    try {
-        const response = await fetch('assets/data/tarot-cards.json');
-        tarotCards = await response.json();
-        initTarot();
-    } catch (error) {
-        console.error('Error loading tarot cards:', error);
-        // Fallback to default set if loading fails
-        tarotCards = [
-            {
-                title: "The Spell",
-                message: "The energy you project to the universe returns to you multiplied. Examine your intentions and make sure they are aligned with your true self.",
-                quote: "What you give, you receive in eternal echo.",
-                symbol: "fas fa-skull"
-            },
-            {
-                title: "The Shadow",
-                message: "Face your fears and what you have been avoiding. In darkness, you will find answers that light cannot reveal.",
-                quote: "Only when you embrace your darkness, you find your true light.",
-                symbol: "fas fa-moon"
-            }
-        ];
-        initTarot();
-    }
-}
+// Get tarot cards from configuration
+const tarotCards = CONFIG.tarot.cards;
 
 // Check if daily card has already been selected
 function checkDailyCard() {
@@ -109,6 +82,11 @@ function resetCardPosition() {
 
 // Initialize Tarot section
 function initTarot() {
+    // Update button text from config
+    if (randomButton) {
+        randomButton.textContent = CONFIG.tarot.buttonText;
+    }
+    
     // Check if we have a daily card already
     if (!checkDailyCard()) {
         // If not, get a random card on page load
@@ -128,5 +106,5 @@ if (tarotInner) {
     });
 }
 
-// Load tarot cards when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', fetchTarotCards);
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', initTarot);

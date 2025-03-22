@@ -24,6 +24,7 @@
     margin-bottom: 20px;
 }
 
+/* En about.css, modificar la imagen de about */
 .about-image {
     overflow: hidden;
     border-radius: 10px;
@@ -31,7 +32,7 @@
     border: 1px solid rgba(156, 39, 176, 0.2);
     height: 100%;
     min-height: 400px;
-    background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('../images/background/band-image.jpg') center/cover no-repeat;
+    background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.9)), var(--about-image) center/cover no-repeat;
 }
 
 /* Hexagon grid for team members */

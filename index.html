@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="HEXES - Modern metal band that fuses intensity with mystical and conceptual elements">
-    <title>HEXES - Modern Metal Cult</title>
+    <title>HEXES - Modern Metal</title>
     
     <!-- Favicon -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -16,13 +16,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <!-- CSS Styles -->
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/navigation.css">
-    <link rel="stylesheet" href="assets/css/social.css">
-    <link rel="stylesheet" href="assets/css/about.css">
-    <link rel="stylesheet" href="assets/css/tarot.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/navigation.css">
+    <link rel="stylesheet" href="./assets/css/social.css">
+    <link rel="stylesheet" href="./assets/css/about.css">
+    <link rel="stylesheet" href="./assets/css/tarot.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -43,8 +43,8 @@
     <!-- Header/Hero Section -->
     <header id="hero">
         <div class="container">
-            <img src="assets/images/logo/hexes-logo.png" alt="HEXES Logo" class="logo">
-            <h2 class="tagline">Modern metal cult</h2>
+            <img src="./assets/images/logo/hexes-logo.png" alt="HEXES Logo" class="logo">
+            <h2 class="tagline">Conjuring modern metal</h2>
             <a href="#social" class="cta-button">Discover our world</a>
         </div>
     </header>
@@ -55,7 +55,7 @@
             <h2 class="section-title">Follow Us</h2>
             <div class="social-grid">
                 <div class="social-card">
-                    <img src="assets/images/social/instagram.jpg" alt="Instagram">
+                    <img src="./assets/images/social/instagram.jpg" alt="Instagram">
                     <div class="social-content">
                         <h3>Instagram</h3>
                         <p>Exclusive images, daily stories, and visual content from the world of HEXES.</p>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="social-card">
-                    <img src="assets/images/social/youtube.jpg" alt="YouTube">
+                    <img src="./assets/images/social/youtube.jpg" alt="YouTube">
                     <div class="social-content">
                         <h3>YouTube</h3>
                         <p>Music videos, live sessions, and exclusive behind-the-scenes content.</p>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <div class="social-card">
-                    <img src="assets/images/social/spotify.jpg" alt="Spotify">
+                    <img src="./assets/images/social/spotify.jpg" alt="Spotify">
                     <div class="social-content">
                         <h3>Spotify</h3>
                         <p>Listen to our songs, curated playlists, and exclusive previews.</p>
@@ -93,25 +93,32 @@
                     <p>Each member brings their own "hexagon" of influences, creating a sound that is both brutal and melodic, both technical and accessible.</p>
                     <p>Our mission is to create not just music, but a complete experience that envelops our followers in a world of symbolism and sonic power.</p>
                     <div class="hex-container">
+                        <div class="hex-item" data-member="guitarist">
+                            <div class="hex-bg"></div>
+                            <div class="hex-content">
+                                <h4 class="hex-title">Guitarist</h4>
+                                <p class="hex-subtitle">Alex Hexcraft</p>
+                            </div>
+                        </div>
                         <div class="hex-item" data-member="vocalist">
                             <div class="hex-bg"></div>
                             <div class="hex-content">
                                 <h4 class="hex-title">Vocalist</h4>
-                                <p class="hex-subtitle">Name</p>
+                                <p class="hex-subtitle">Morgan Shadowvoice</p>
+                            </div>
+                        </div>
+                        <div class="hex-item" data-member="bassist">
+                            <div class="hex-bg"></div>
+                            <div class="hex-content">
+                                <h4 class="hex-title">Bassist</h4>
+                                <p class="hex-subtitle">Jordan Lowend</p>
                             </div>
                         </div>
                         <div class="hex-item" data-member="drummer">
                             <div class="hex-bg"></div>
                             <div class="hex-content">
                                 <h4 class="hex-title">Drummer</h4>
-                                <p class="hex-subtitle">Name</p>
-                            </div>
-                        </div>
-                        <div class="hex-item" data-member="guitarist">
-                            <div class="hex-bg"></div>
-                            <div class="hex-content">
-                                <h4 class="hex-title">Guitarist</h4>
-                                <p class="hex-subtitle">Name</p>
+                                <p class="hex-subtitle">Taylor Thunderbeats</p>
                             </div>
                         </div>
                     </div>
@@ -169,9 +176,23 @@
         </div>
     </footer>
     
+    <!-- Configuration -->
+    <script src="./assets/js/config.js"></script>
+    
     <!-- Scripts -->
-    <script src="assets/js/navigation.js"></script>
-    <script src="assets/js/tarot.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="./assets/js/navigation.js"></script>
+    <script src="./assets/js/tarot.js"></script>
+    <script src="./assets/js/main.js"></script>
+    
+    <!-- Fix for animation issues -->
+    <script>
+      // Temporary fix to ensure sections are visible
+      setTimeout(function() {
+        document.querySelectorAll('.fade-in').forEach(el => {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        });
+      }, 100);
+    </script>
 </body>
 </html>

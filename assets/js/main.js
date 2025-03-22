@@ -1,26 +1,96 @@
-// main.js - Main JavaScript functionality
-
-document.documentElement.classList.add('js-enabled');
+// main.js - Versión actualizada para usar la configuración centralizada
 
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Hexes website loaded');
+    console.log(`${CONFIG.site.name} website loaded`);
     
-    // Initialize animations
-    //initAnimations();
+    // Apply configuration
+    applyConfiguration();
     
-    // Initialize loading of images (lazy loading)
+    // Initialize animations (only if enabled in config)
+    if (CONFIG.animations.enabled) {
+        initAnimations();
+    }
+    
+    // Initialize loading of images
     initImageLoading();
 });
 
+// Apply configuration to DOM elements
+function applyConfiguration() {
+    // Update site title and meta
+    document.title = `${CONFIG.site.name} - Modern Metal`;
+    
+    // Update tagline
+    const tagline = document.querySelector('.tagline');
+    if (tagline) {
+        tagline.textContent = CONFIG.site.tagline;
+    }
+    
+    // Update copyright
+    const copyright = document.querySelector('.copyright');
+    if (copyright) {
+        copyright.textContent = CONFIG.site.copyright;
+    }
+    
+    // Update band info
+    const aboutContent = document.querySelector('.about-content');
+    if (aboutContent) {
+        const paragraphs = aboutContent.querySelectorAll('p');
+        CONFIG.band.history.forEach((text, index) => {
+            if (paragraphs[index]) {
+                paragraphs[index].textContent = text;
+            }
+        });
+    }
+    
+    // Update member info
+    for (const [role, member] of Object.entries(CONFIG.band.members)) {
+        const memberEl = document.querySelector(`.hex-item[data-member="${role}"]`);
+        if (memberEl) {
+            const titleEl = memberEl.querySelector('.hex-title');
+            const nameEl = memberEl.querySelector('.hex-subtitle');
+            
+            if (titleEl) titleEl.textContent = member.title;
+            if (nameEl) nameEl.textContent = member.name;
+        }
+    }
+    
+    // Update social media
+    for (const [platform, info] of Object.entries(CONFIG.social)) {
+        const socialCard = document.querySelector(`.social-card h3:contains('${platform}')`);
+        if (socialCard) {
+            const container = socialCard.closest('.social-card');
+            const description = container.querySelector('p');
+            const button = container.querySelector('.social-button');
+            
+            if (description) description.textContent = info.description;
+            if (button) button.href = info.url;
+        }
+    }
+    
+    // Apply theme colors
+    document.documentElement.style.setProperty('--primary-color', CONFIG.theme.primaryColor);
+    document.documentElement.style.setProperty('--accent-color', CONFIG.theme.accentColor);
+    document.documentElement.style.setProperty('--secondary-accent', CONFIG.theme.secondaryAccent);
+    document.documentElement.style.setProperty('--text-color', CONFIG.theme.textColor);
+    document.documentElement.style.setProperty('--dark-shadow', CONFIG.theme.darkShadow);
+}
+
 // Initialize animations
 function initAnimations() {
+    // Add JS enabled class
+    document.documentElement.classList.add('js-enabled');
+    
+    // Only run if fade-in animations are enabled
+    if (!CONFIG.animations.fadeInEnabled) return;
+    
     // Fade in elements on scroll
     const fadeElements = document.querySelectorAll('.fade-in');
     
     const fadeInOptions = {
-        threshold: 0.3,
-        rootMargin: "0px 0px -100px 0px"
+        threshold: CONFIG.animations.fadeInThreshold,
+        rootMargin: CONFIG.animations.fadeInMargin
     };
     
     const fadeInObserver = new IntersectionObserver(function(entries, observer) {
@@ -45,16 +115,22 @@ function initAnimations() {
 
 // Initialize image loading
 function initImageLoading() {
-    // Lazy load background images
-    document.querySelectorAll('.hex-bg').forEach(bg => {
-        const member = bg.parentElement.getAttribute('data-member');
-        if (member) {
-            // The CSS already handles this with data attributes, but this is just an example
-            // of how we could lazy load images with JavaScript if needed
-            console.log(`Loading image for ${member}`);
-        }
-    });
+    // Update logo image
+    const logoImg = document.querySelector('.logo');
+    if (logoImg && CONFIG.media.logo) {
+        logoImg.src = CONFIG.media.logo;
+    }
+    
+    // Set background images via CSS custom properties
+    document.documentElement.style.setProperty('--hero-bg-image', `url(${CONFIG.media.heroBg})`);
+    document.documentElement.style.setProperty('--about-image', `url(${CONFIG.media.aboutImage})`);
+    document.documentElement.style.setProperty('--card-back-image', `url(${CONFIG.media.cardBack})`);
 }
+
+// Helper function to find element by text content
+Element.prototype.contains = function(text) {
+    return this.textContent.includes(text);
+};
 
 // Helper function for smooth scrolling
 function scrollToElement(element) {

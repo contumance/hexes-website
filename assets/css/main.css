@@ -1,4 +1,4 @@
-/* main.css - General styles and variables */
+/* Añadir variables para recursos de imágenes dinámicas */
 :root {
     /* Color palette */
     --primary-color: #0f0f0f;
@@ -6,6 +6,11 @@
     --secondary-accent: #673ab7;
     --text-color: #e0e0e0;
     --dark-shadow: rgba(0, 0, 0, 0.8);
+    
+    /* Image resources */
+    --hero-bg-image: url('../images/background/hero-bg.jpg');
+    --about-image: url('../images/background/band-image.jpg');
+    --card-back-image: url('../images/tarot/card-back.jpg');
     
     /* Typography */
     --heading-font: 'Montserrat', sans-serif;
