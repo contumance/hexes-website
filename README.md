@@ -1,27 +1,30 @@
 # Hexes Band Website
 
-Official website for the modern metal band Hexes.
+Official website for Hexes, a modern metal band that fuses intensity with mystical elements.
 
-## Project Structure
+## Live Site
 
-- `index.html`: Main entry point
-- `assets/css/`: Stylesheet files
-- `assets/js/`: JavaScript files
-- `assets/images/`: Image resources
-- `assets/data/`: Data files (including tarot card information)
+Visit the site at: [https://username.github.io/hexes-website](https://username.github.io/hexes-website)
 
 ## Features
 
-- Responsive design
-- Interactive tarot card section (Hexed Oracle)
-- Band information and social media links
+- Responsive design that works on all devices
+- Interactive Hexed Oracle tarot card experience
+- Band member profiles with mystical abilities
+- Modular code structure for easy maintenance
 
 ## Development
 
 This project uses pure HTML, CSS, and JavaScript without frameworks.
 
-To run the project locally, simply open `index.html` in your browser.
+### Project Structure
 
-## License
+- `index.html`: Main HTML file
+- `assets/css/`: CSS stylesheets (modular)
+- `assets/js/`: JavaScript files (modular)
+- `assets/images/`: Image resources
+- `assets/data/`: Data files (JSON)
 
-All rights reserved © Hexes 2025
+### Setup for Local Development
+
+1. Clone the repository
