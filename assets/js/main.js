@@ -2,8 +2,6 @@
 
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
-    console.log(`${CONFIG.site.name} website loaded`);
-    
     // Apply configuration
     applyConfiguration();
     
@@ -55,19 +53,9 @@ function applyConfiguration() {
             if (nameEl) nameEl.textContent = member.name;
         }
     }
-    
-    // Update social media
-    for (const [platform, info] of Object.entries(CONFIG.social)) {
-        const socialCard = document.querySelector(`.social-card h3:contains('${platform}')`);
-        if (socialCard) {
-            const container = socialCard.closest('.social-card');
-            const description = container.querySelector('p');
-            const button = container.querySelector('.social-button');
-            
-            if (description) description.textContent = info.description;
-            if (button) button.href = info.url;
-        }
-    }
+
+    // Actualizar enlaces de redes sociales en el footer
+    updateFooterSocialLinks();
     
     // Apply theme colors
     document.documentElement.style.setProperty('--primary-color', CONFIG.theme.primaryColor);
@@ -75,6 +63,24 @@ function applyConfiguration() {
     document.documentElement.style.setProperty('--secondary-accent', CONFIG.theme.secondaryAccent);
     document.documentElement.style.setProperty('--text-color', CONFIG.theme.textColor);
     document.documentElement.style.setProperty('--dark-shadow', CONFIG.theme.darkShadow);
+}
+
+// Nueva función para actualizar enlaces del footer
+function updateFooterSocialLinks() {
+    // Iterar sobre las plataformas sociales en la configuración
+    for (const [platform, info] of Object.entries(CONFIG.social)) {
+        // Seleccionar el enlace correspondiente usando el atributo data-platform
+        const link = document.querySelector(`.footer-social a[data-platform="${platform}"]`);
+        
+        // Si encontramos el enlace, actualizar su URL
+        if (link) {
+            link.href = info.url;
+            console.log(`Updated ${platform} link to ${info.url}`);
+        }
+    }
+    
+    // Mensaje de depuración para verificar ejecución
+    console.log("Footer social links updated");
 }
 
 // Initialize animations
@@ -114,21 +120,38 @@ function initAnimations() {
 }
 
 // Initialize image loading
+// En main.js, función initImageLoading()
 function initImageLoading() {
     // Update logo image
     const logoImg = document.querySelector('.logo');
     if (logoImg && CONFIG.media.logo) {
+        // Agregar manejo de error para la imagen
+        logoImg.onerror = function() {
+            console.warn(`Error loading logo image: ${CONFIG.media.logo}`);
+            this.src = 'assets/images/logo/hexes-logo.svg'; // Fallback a SVG
+        };
         logoImg.src = CONFIG.media.logo;
     }
     
-    // Set background images via CSS custom properties
-    document.documentElement.style.setProperty('--hero-bg-image', `url(${CONFIG.media.heroBg})`);
-    document.documentElement.style.setProperty('--about-image', `url(${CONFIG.media.aboutImage})`);
-    document.documentElement.style.setProperty('--card-back-image', `url(${CONFIG.media.cardBack})`);
+    // Verificar que las imágenes existan antes de configurarlas
+    function setBackgroundIfExists(property, imgPath) {
+        const img = new Image();
+        img.onload = function() {
+            document.documentElement.style.setProperty(property, `url(${imgPath})`);
+        };
+        img.onerror = function() {
+            console.warn(`Background image not found: ${imgPath}`);
+        };
+        img.src = imgPath;
+    }
+    
+    setBackgroundIfExists('--hero-bg-image', CONFIG.media.heroBg);
+    setBackgroundIfExists('--about-image', CONFIG.media.aboutImage);
+    setBackgroundIfExists('--card-back-image', CONFIG.media.cardBack);
 }
 
 // Helper function to find element by text content
-Element.prototype.contains = function(text) {
+Element.prototype.containsText = function(text) {
     return this.textContent.includes(text);
 };
 

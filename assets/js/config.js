@@ -22,7 +22,7 @@ const CONFIG = {
     // Redes sociales
     social: {
         instagram: {
-            url: "https://instagram.com/hexesband",
+            url: "https://instagram.com/hexes.cult",
             title: "Instagram",
             description: "Exclusive images, daily stories, and visual content from the world of HEXES."
         },
@@ -128,10 +128,10 @@ const CONFIG = {
     
     // Rutas de medios
     media: {
-        logo: "assets/images/logo/hexes-logo.png",
-        heroBg: "assets/images/background/hero-bg.jpg",
-        aboutImage: "assets/images/background/band-image.jpg",
-        cardBack: "assets/images/tarot/card-back.jpg"
+        logo: "/assets/images/logo/hexes-logo.png",
+        heroBg: "/assets/images/background/hero-bg.jpg",
+        aboutImage: "/assets/images/background/band-image.jpg",
+        cardBack: "/assets/images/tarot/card-back.jpg"
     }
 };
 

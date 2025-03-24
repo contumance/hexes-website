@@ -1,0 +1,15 @@
+{
+  "name": "hexes-website",
+  "version": "1.0.0",
+  "description": "Official website for Hexes, a modern metal band that fuses intensity with mystical elements.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
