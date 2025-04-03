@@ -69,7 +69,7 @@ const CONFIG = {
     
     // Configuración del Hexed Oracle (tarot)
     tarot: {
-        title: "Hexed Oracle",
+        title: "Oracle",
         description: "Receive your daily message through our mystical oracle. Each card contains a unique message inspired by our music and philosophy.",
         buttonText: "New Card",
         cards: [
@@ -148,9 +148,9 @@ CONFIG.translations = {
         nav: {
             social: "Social",
             about: "About",
-            tarot: "Hexed Oracle"
+            tarot: "Oracle"
         },
-        cta: "Discover our world",
+        cta: "enter the hexagon",
         social: {
             follow: "Follow Us",
             instagram: {
@@ -165,10 +165,10 @@ CONFIG.translations = {
         },
         about: {
             title: "About Us",
-            historyTitle: "The Story of HEXES"
+            historyTitle: "The band"
         },
         tarot: {
-            title: "Hexed Oracle",
+            title: "Oracle",
             description: "Receive your daily message through our mystical oracle. Each card contains a unique message inspired by our music and philosophy.",
             button: "New Card"
         },
@@ -180,9 +180,9 @@ CONFIG.translations = {
         nav: {
             social: "Redes",
             about: "Nosotros",
-            tarot: "Oráculo Hexed"
+            tarot: "Oráculo"
         },
-        cta: "Descubre nuestro mundo",
+        cta: "Descubre el hexágono",
         social: {
             follow: "Síguenos",
             instagram: {
@@ -197,10 +197,10 @@ CONFIG.translations = {
         },
         about: {
             title: "Nosotros",
-            historyTitle: "La Historia de HEXES"
+            historyTitle: "La banda"
         },
         tarot: {
-            title: "Oráculo Hexed",
+            title: "Oráculo",
             description: "Recibe tu mensaje diario a través de nuestro oráculo místico. Cada carta contiene un mensaje único inspirado en nuestra música y filosofía.",
             button: "Nueva Carta"
         },
