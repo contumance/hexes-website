@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="./assets/css/about.css">
     <link rel="stylesheet" href="./assets/css/tarot.css">
     <link rel="stylesheet" href="./assets/css/footer.css">
+    <link rel="stylesheet" href="./assets/css/hexagon-animation.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -42,7 +43,12 @@
     <!-- Header/Hero Section -->
     <header id="hero">
         <div class="container">
-            <img src="./assets/images/logo/hexes-logo.png" alt="HEXES Logo" class="logo">
+            <div class="hexagon-container logo-animation">
+                <div class="hexagon hex-1 rotate-slow parallax parallax-slow"></div>
+                <div class="hexagon hex-2 rotate-medium parallax parallax-medium"></div>
+                <div class="hexagon hex-3 rotate-fast parallax parallax-medium"></div>
+                <div class="hexagon hex-4 rotate-very-fast parallax parallax-fast"></div>
+            </div>
             <h2 class="tagline">Conjuring modern metal</h2>
             <a href="#about" class="cta-button">Discover our world</a>
         </div>
@@ -156,5 +162,6 @@
         });
       }, 100);
     </script>
+    <script src="./assets/js/hexagon-animation.js"></script>
 </body>
 </html>
