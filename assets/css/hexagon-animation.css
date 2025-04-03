@@ -1,8 +1,8 @@
 /* Hexagon animation styles para el logo */
 .logo-animation {
     position: relative;
-    width: 300px;
-    height: 300px;
+    width: 380px; /* Aumentado para acomodar hexágonos más grandes */
+    height: 380px;
     margin: 0 auto 20px;
     display: flex;
     align-items: center;
@@ -18,10 +18,26 @@
     transition: all 0.5s ease;
 }
 
+/* Hexágonos exteriores nuevos */
+.hex-outer-2 {
+    width: 350px;
+    height: 350px;
+    background-color: rgba(156, 39, 176, 0.1); /* El más tenue */
+    clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+}
+
+.hex-outer-1 {
+    width: 300px;
+    height: 300px;
+    background-color: rgba(156, 39, 176, 0.2);
+    clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+}
+
+/* Hexágonos existentes */
 .hex-1 {
     width: 250px;
     height: 250px;
-    background-color: rgba(156, 39, 176, 0.3); /* Color base púrpura como el --accent-color */
+    background-color: rgba(156, 39, 176, 0.3);
     clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
 }
 
@@ -64,7 +80,16 @@
     }
 }
 
-/* Animation speeds for different hexagons */
+/* Nuevas velocidades de animación para los hexágonos exteriores */
+.rotate-ultra-slow {
+    animation: rotate-clockwise 90s infinite linear;
+}
+
+.rotate-super-slow {
+    animation: rotate-counterclockwise 75s infinite linear;
+}
+
+/* Velocidades existentes */
 .rotate-slow {
     animation: rotate-clockwise 60s infinite linear;
 }
@@ -81,7 +106,15 @@
     animation: rotate-counterclockwise 20s infinite linear;
 }
 
-/* Hover effects */
+/* Efectos de hover actualizados */
+.logo-animation:hover .hex-outer-2 {
+    transform: translate(-50%, -50%) scale(1.02);
+}
+
+.logo-animation:hover .hex-outer-1 {
+    transform: translate(-50%, -50%) scale(1.03);
+}
+
 .logo-animation:hover .hex-1 {
     transform: translate(-50%, -50%) scale(1.05);
 }
@@ -104,11 +137,30 @@
     will-change: transform;
 }
 
-/* Media queries para responsive */
+.parallax-ultra-slow {
+    /* Los más lentos para los hexágonos exteriores */
+    transform: translateZ(-4px) scale(1.4);
+}
+
+.parallax-super-slow {
+    transform: translateZ(-3px) scale(1.3);
+}
+
+/* Media queries actualizados para responsive */
 @media (max-width: 768px) {
     .logo-animation {
-        width: 250px;
-        height: 250px;
+        width: 300px;
+        height: 300px;
+    }
+
+    .hex-outer-2 {
+        width: 280px;
+        height: 280px;
+    }
+
+    .hex-outer-1 {
+        width: 240px;
+        height: 240px;
     }
 
     .hex-1 {
@@ -134,6 +186,16 @@
 
 @media (max-width: 480px) {
     .logo-animation {
+        width: 240px;
+        height: 240px;
+    }
+
+    .hex-outer-2 {
+        width: 230px;
+        height: 230px;
+    }
+
+    .hex-outer-1 {
         width: 200px;
         height: 200px;
     }
