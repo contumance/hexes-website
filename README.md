@@ -28,3 +28,22 @@ This project uses pure HTML, CSS, and JavaScript without frameworks.
 ### Setup for Local Development
 
 1. Clone the repository
+
+
+## Herramientas de desarrollo
+
+### Optimización de imágenes
+
+La web incluye una herramienta para optimizar automáticamente todas las imágenes del proyecto:
+
+Alvaro@192 hexes-website % npm run optimize-images                                                               
+
+> hexes-website@1.0.0 optimize-images
+> node tools/image-optimization/optimize.js
+
+🖼️ Iniciando optimización de imágenes...
+Encontradas 10 imágenes JPG/JPEG y 0 imágenes PNG
+..........
+✅ Proceso completado:
+   - Imágenes optimizadas: 10
+   - Versiones WebP generadas: 10

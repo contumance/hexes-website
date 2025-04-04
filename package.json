@@ -1,15 +1,20 @@
 {
   "name": "hexes-website",
   "version": "1.0.0",
-  "description": "Official website for Hexes, a modern metal band that fuses intensity with mystical elements.",
+  "description": "Official website for Hexes, a modern metal band that fuses intensity with dark elements.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server",
+    "optimize-images": "node tools/image-optimization/optimize.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "http-server": "^14.1.1"
+    "fs-extra": "^11.3.0",
+    "glob": "^11.0.1",
+    "http-server": "^14.1.1",
+    "sharp": "^0.34.0"
   }
 }

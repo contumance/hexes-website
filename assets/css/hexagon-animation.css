@@ -1,3 +1,15 @@
+/* 
+ * Hexagon Animation - Estilos CSS
+ * 
+ * Este archivo maneja:
+ * - Apariencia visual de los hexágonos
+ * - Animaciones automáticas de rotación continua
+ * - Responsive design para diferentes tamaños de pantalla
+ *
+ * Las interacciones del usuario (hover, movimiento del mouse, etc.) 
+ * se manejan en hexagon-animation.js
+ */
+ 
 /* Hexagon animation styles para el logo */
 .logo-animation {
     position: relative;

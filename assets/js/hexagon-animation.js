@@ -1,5 +1,27 @@
+/**
+ * Hexagon Animation - Interactividad
+ * 
+ * Este script maneja la interactividad de los hexágonos:
+ * - Efecto parallax con movimiento del mouse
+ * - Soporte para dispositivos táctiles
+ * - Movimientos aleatorios sutiles
+ * 
+ * Las animaciones base de rotación se definen en hexagon-animation.css
+ */
 // Hexagon Animation for logo
 document.addEventListener('DOMContentLoaded', function() {
+
+    // Verificar si las animaciones están habilitadas en la configuración
+    const animationsEnabled = 
+    typeof CONFIG !== 'undefined' && 
+    CONFIG.animations && 
+    CONFIG.animations.enabled !== false;
+    
+    if (!animationsEnabled) {
+        console.log('Animations disabled in config, skipping hexagon interactions');
+        return; // No inicializar las interacciones si las animaciones están desactivadas
+    }
+
     const logoContainer = document.querySelector('.logo-animation');
     
     if (!logoContainer) return;

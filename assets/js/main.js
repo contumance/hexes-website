@@ -119,6 +119,21 @@ function initAnimations() {
     });
 }
 
+// Asegurar que las secciones con fade-in sean visibles
+function ensureFadeInVisibility() {
+    // Solución de respaldo para asegurarse de que los elementos fade-in son visibles 
+    // incluso si las animaciones fallan
+    setTimeout(function() {
+      document.querySelectorAll('.fade-in').forEach(el => {
+        if (window.getComputedStyle(el).opacity < 0.1) {
+          console.log('Corrigiendo visibilidad para elemento fade-in', el);
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        }
+      });
+    }, 500); // Un retraso un poco mayor para dar tiempo a las animaciones normales
+  }
+
 // Initialize image loading
 // En main.js, función initImageLoading()
 function initImageLoading() {
@@ -259,8 +274,20 @@ function initTooltips() {
 
 // Add this to your existing initialization
 document.addEventListener('DOMContentLoaded', function() {
-    // Existing code...
+    // Apply configuration
+    applyConfiguration();
     
-    // Initialize tooltips
+    // Initialize animations (only if enabled in config)
+    if (CONFIG.animations.enabled) {
+        initAnimations();
+    }
+    
+    // Initialize loading of images
+    initImageLoading();
+    
+    // Ensure all fade-in elements are visibles
+    ensureFadeInVisibility();
+    
+    // Initialize tooltips (esta función ya existía)
     initTooltips();
 });
