@@ -6,8 +6,7 @@ const CONFIG = {
     site: {
         name: "HEXES",
         tagline: "modern metal cult",
-        copyright: "© 2025 HEXES. All rights reserved.",
-        language: "en" // 'en' para inglés, 'es' para español
+        copyright: "© 2025 HEXES. All rights reserved."
     },
     
     // Colores y temas
@@ -95,93 +94,3 @@ const CONFIG = {
 if (typeof module !== 'undefined') {
     module.exports = CONFIG;
 }
-
-// Añadir al final de config.js
-
-// Configuración de idiomas
-CONFIG.translations = {
-    en: {
-        nav: {
-            social: "Social",
-            about: "About",
-            tarot: "Oracle"
-        },
-        cta: "enter the hexagon",
-        social: {
-            follow: "Follow Us",
-            instagram: {
-                button: "Follow"
-            },
-            youtube: {
-                button: "Subscribe"
-            },
-            spotify: {
-                button: "Listen"
-            }
-        },
-        about: {
-            title: "About Us",
-            historyTitle: "The band"
-        },
-        tarot: {
-            title: "Oracle",
-            description: "Receive your daily message through our mystical oracle. Each card contains a unique message inspired by our music and philosophy.",
-            button: "New Card"
-        },
-        footer: {
-            rights: "All rights reserved"
-        }
-    },
-    es: {
-        nav: {
-            social: "Redes",
-            about: "Nosotros",
-            tarot: "Oráculo"
-        },
-        cta: "Descubre el hexágono",
-        social: {
-            follow: "Síguenos",
-            instagram: {
-                button: "Seguir"
-            },
-            youtube: {
-                button: "Suscribirse"
-            },
-            spotify: {
-                button: "Escuchar"
-            }
-        },
-        about: {
-            title: "Nosotros",
-            historyTitle: "La banda"
-        },
-        tarot: {
-            title: "Oráculo",
-            description: "Recibe tu mensaje diario a través de nuestro oráculo místico. Cada carta contiene un mensaje único inspirado en nuestra música y filosofía.",
-            button: "Nueva Carta"
-        },
-        footer: {
-            rights: "Todos los derechos reservados"
-        }
-    }
-};
-
-// Función para obtener traducción
-CONFIG.getTranslation = function(key, defaultValue = "") {
-    const language = CONFIG.site.language;
-    const keys = key.split('.');
-    
-    let value = CONFIG.translations[language];
-    for (const k of keys) {
-        if (value && value[k]) {
-            value = value[k];
-        } else {
-            return defaultValue;
-        }
-    }
-    
-    return value;
-};
-
-// Abreviación para obtener traducción
-const t = key => CONFIG.getTranslation(key, key);
