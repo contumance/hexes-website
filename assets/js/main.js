@@ -122,17 +122,7 @@ function initAnimations() {
 // Initialize image loading
 // En main.js, función initImageLoading()
 function initImageLoading() {
-    // Update logo image
-    const logoImg = document.querySelector('.logo');
-    if (logoImg && CONFIG.media.logo) {
-        // Agregar manejo de error para la imagen
-        logoImg.onerror = function() {
-            console.warn(`Error loading logo image: ${CONFIG.media.logo}`);
-            this.src = 'assets/images/logo/hexes-logo.svg'; // Fallback a SVG
-        };
-        logoImg.src = CONFIG.media.logo;
-    }
-    
+        
     // Verificar que las imágenes existan antes de configurarlas
     function setBackgroundIfExists(property, imgPath) {
         const img = new Image();

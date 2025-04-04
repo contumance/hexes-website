@@ -128,7 +128,6 @@ const CONFIG = {
     
     // Rutas de medios
     media: {
-        logo: "/assets/images/logo/hexes-logo.png",
         heroBg: "/assets/images/background/hero-bg.jpg",
         aboutImage: "/assets/images/background/band-image.jpg",
         cardBack: "/assets/images/tarot/card-back.jpg"
