@@ -72,50 +72,7 @@ const CONFIG = {
         title: "Oracle",
         description: "Receive your daily message through our mystical oracle. Each card contains a unique message inspired by our music and philosophy.",
         buttonText: "New Card",
-        cards: [
-            {
-                title: "The Spell",
-                message: "The energy you project to the universe returns to you multiplied. Examine your intentions and make sure they are aligned with your true self.",
-                quote: "What you give, you receive in eternal echo.",
-                symbol: "fas fa-skull"
-            },
-            {
-                title: "The Shadow",
-                message: "Face your fears and what you have been avoiding. In darkness, you will find answers that light cannot reveal.",
-                quote: "Only when you embrace your darkness, you find your true light.",
-                symbol: "fas fa-moon"
-            },
-            {
-                title: "The Ritual",
-                message: "Consistency and dedication are your allies now. Establish daily practices that bring you closer to your goals.",
-                quote: "Each action repeated with intention becomes power.",
-                symbol: "fas fa-fire"
-            },
-            {
-                title: "The Pact",
-                message: "It's time to honor your commitments and review what you have promised. Integrity is the foundation of your personal power.",
-                quote: "A promise is a chain that only you can break or strengthen.",
-                symbol: "fas fa-handshake"
-            },
-            {
-                title: "The Transformation",
-                message: "You are in a process of profound change. What you let go creates space for what is yet to come.",
-                quote: "From the ashes of the past, the wings of the future arise.",
-                symbol: "fas fa-dragon"
-            },
-            {
-                title: "The Communion",
-                message: "Connect with those who resonate with your energy. True bonds transcend ordinary relationships and become powerful alliances.",
-                quote: "In the right circle, your flame burns brighter.",
-                symbol: "fas fa-users"
-            },
-            {
-                title: "The Void",
-                message: "Embrace the silence and emptiness. Within nothingness lies the potential for everything. This is a time for introspection.",
-                quote: "From the void, all creation emerges.",
-                symbol: "fas fa-globe"
-            }
-        ]
+        cardsPath: "./assets/data/tarot-cards.json"
     },
     
     // Opciones de animación

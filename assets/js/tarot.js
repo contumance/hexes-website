@@ -9,7 +9,25 @@ const tarotSymbol = document.querySelector('.tarot-symbol');
 const tarotInner = document.querySelector('.tarot-inner');
 
 // Get tarot cards from configuration
-const tarotCards = CONFIG.tarot.cards;
+let tarotCards = [];
+
+// Función para cargar las cartas desde el JSON
+async function loadTarotCards() {
+    try {
+        const response = await fetch(CONFIG.tarot.cardsPath);
+        if (!response.ok) {
+            throw new Error(`Error al cargar las cartas: ${response.status}`);
+        }
+        tarotCards = await response.json();
+        
+        // Inicializar el tarot si la página ya está cargada
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            initTarot();
+        }
+    } catch (error) {
+        console.error('Error cargando cartas de tarot:', error);
+    }
+}
 
 // Check if daily card has already been selected
 function checkDailyCard() {
@@ -107,4 +125,7 @@ if (tarotInner) {
 }
 
 // Initialize on page load
-document.addEventListener('DOMContentLoaded', initTarot);
+document.addEventListener('DOMContentLoaded', function() {
+    // Cargar las cartas primero
+    loadTarotCards();
+});
