@@ -41,7 +41,7 @@
     backface-visibility: hidden;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border: 2px solid var(--accent-color);
+    border: 2px solid var(--gray-main);
 }
 
 /* En tarot.css, modificar el fondo de la carta */
@@ -96,7 +96,7 @@
 .random-button {
     margin-top: 40px;
     padding: 12px 30px;
-    background-color: var(--accent-color);
+    background-color: var(--gray-main);
     color: white;
     border: none;
     border-radius: 5px;
@@ -108,7 +108,7 @@
 }
 
 .random-button:hover {
-    background-color: var(--secondary-accent);
+    background-color: var(--gray-dark);
     transform: scale(1.05);
 }
 
