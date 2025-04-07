@@ -272,12 +272,11 @@ function initTooltips() {
     });
 }
 
-// Add this to your existing initialization
 document.addEventListener('DOMContentLoaded', function() {
     // Apply configuration
     applyConfiguration();
     
-    // Initialize animations (only if enabled in config)
+    // Initialize animations
     if (CONFIG.animations.enabled) {
         initAnimations();
     }
@@ -285,9 +284,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize loading of images
     initImageLoading();
     
-    // Ensure all fade-in elements are visibles
+    // Ensure fade-in elements are visible
     ensureFadeInVisibility();
     
-    // Initialize tooltips (esta función ya existía)
+    // Initialize tooltips
     initTooltips();
+    
+    // La inicialización de hexágonos ahora ocurre en su propio archivo
+    // No es necesario llamarlo desde aquí para evitar inicialización duplicada
 });

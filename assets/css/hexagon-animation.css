@@ -10,17 +10,21 @@
  * se manejan en hexagon-animation.js
  */
  
-/* Hexagon animation styles para el logo */
+/* Contenedor principal */
 .logo-animation {
     position: relative;
-    width: 380px; /* Aumentado para acomodar hexágonos más grandes */
+    width: 380px;
     height: 380px;
     margin: 0 auto 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 10;
+    pointer-events: auto;
+    cursor: pointer;
 }
 
+/* Base para todos los hexágonos */
 .hexagon {
     position: absolute;
     top: 50%;
@@ -28,13 +32,15 @@
     transform: translate(-50%, -50%);
     opacity: 0.9;
     transition: all 0.5s ease;
+    z-index: 5;
+    transform-origin: center center;
 }
 
-/* Hexágonos exteriores nuevos */
+/* Hexágonos exteriores */
 .hex-outer-2 {
     width: 350px;
     height: 350px;
-    background-color: rgba(156, 39, 176, 0.1); /* El más tenue */
+    background-color: rgba(156, 39, 176, 0.1);
     clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
 }
 
@@ -45,7 +51,7 @@
     clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
 }
 
-/* Hexágonos existentes */
+/* Hexágonos interiores */
 .hex-1 {
     width: 250px;
     height: 250px;
@@ -65,6 +71,7 @@
     height: 150px;
     background-color: rgba(156, 39, 176, 0.6);
     clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+    filter: drop-shadow(0 0 2px rgba(156, 39, 176, 0.3));
 }
 
 .hex-4 {
@@ -72,31 +79,29 @@
     height: 100px;
     background-color: rgba(156, 39, 176, 0.8);
     clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
-}
-
-.hex-3, .hex-4 {
     filter: drop-shadow(0 0 2px rgba(156, 39, 176, 0.3));
 }
 
+/* Definición de animaciones - Corregida para mantener centros alineados */
 @keyframes rotate-clockwise {
-    from {
+    0% {
         transform: translate(-50%, -50%) rotate(0deg);
     }
-    to {
+    100% {
         transform: translate(-50%, -50%) rotate(360deg);
     }
 }
 
 @keyframes rotate-counterclockwise {
-    from {
+    0% {
         transform: translate(-50%, -50%) rotate(0deg);
     }
-    to {
+    100% {
         transform: translate(-50%, -50%) rotate(-360deg);
     }
 }
 
-/* Nuevas velocidades de animación para los hexágonos exteriores */
+/* Aplicar animaciones de rotación */
 .rotate-ultra-slow {
     animation: rotate-clockwise 90s infinite linear;
 }
@@ -105,7 +110,6 @@
     animation: rotate-counterclockwise 75s infinite linear;
 }
 
-/* Velocidades existentes */
 .rotate-slow {
     animation: rotate-clockwise 60s infinite linear;
 }
@@ -120,6 +124,13 @@
 
 .rotate-very-fast {
     animation: rotate-counterclockwise 20s infinite linear;
+}
+
+/* Clase para resetear a la posición inicial con animación */
+.hex-reset {
+    animation: none !important;
+    transition: transform 2.5s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+    transform: translate(-50%, -50%) rotate(0deg) !important;
 }
 
 /* Efectos de hover actualizados */
@@ -152,57 +163,18 @@
     filter: drop-shadow(0 0 5px rgba(156, 39, 176, 0.5));
 }
 
-/* Estilos para efecto parallax en hover */
-.parallax {
-    transition: transform 0.1s cubic-bezier(0.2, 0.8, 0.2, 1);
-    will-change: transform;
-}
-
-.parallax-ultra-slow {
-    /* Los más lentos para los hexágonos exteriores */
-    transform: translateZ(-4px) scale(1.4);
-}
-
-.parallax-super-slow {
-    transform: translateZ(-3px) scale(1.3);
-}
-
-/* Media queries actualizados para responsive */
+/* Media queries para responsive */
 @media (max-width: 768px) {
     .logo-animation {
         width: 300px;
         height: 300px;
     }
-
-    .hex-outer-2 {
-        width: 280px;
-        height: 280px;
-    }
-
-    .hex-outer-1 {
-        width: 240px;
-        height: 240px;
-    }
-
-    .hex-1 {
-        width: 200px;
-        height: 200px;
-    }
-
-    .hex-2 {
-        width: 160px;
-        height: 160px;
-    }
-
-    .hex-3 {
-        width: 120px;
-        height: 120px;
-    }
-
-    .hex-4 {
-        width: 80px;
-        height: 80px;
-    }
+    .hex-outer-2 { width: 280px; height: 280px; }
+    .hex-outer-1 { width: 240px; height: 240px; }
+    .hex-1 { width: 200px; height: 200px; }
+    .hex-2 { width: 160px; height: 160px; }
+    .hex-3 { width: 120px; height: 120px; }
+    .hex-4 { width: 80px; height: 80px; }
 }
 
 @media (max-width: 480px) {
@@ -210,34 +182,10 @@
         width: 240px;
         height: 240px;
     }
-
-    .hex-outer-2 {
-        width: 230px;
-        height: 230px;
-    }
-
-    .hex-outer-1 {
-        width: 200px;
-        height: 200px;
-    }
-
-    .hex-1 {
-        width: 160px;
-        height: 160px;
-    }
-
-    .hex-2 {
-        width: 130px;
-        height: 130px;
-    }
-
-    .hex-3 {
-        width: 100px;
-        height: 100px;
-    }
-
-    .hex-4 {
-        width: 70px;
-        height: 70px;
-    }
+    .hex-outer-2 { width: 230px; height: 230px; }
+    .hex-outer-1 { width: 200px; height: 200px; }
+    .hex-1 { width: 160px; height: 160px; }
+    .hex-2 { width: 130px; height: 130px; }
+    .hex-3 { width: 100px; height: 100px; }
+    .hex-4 { width: 70px; height: 70px; }
 }
