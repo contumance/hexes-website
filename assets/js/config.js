@@ -4,7 +4,7 @@
 const CONFIG = {
     // Información general del sitio
     site: {
-        name: "HEXES",
+        name: "H E X E S",
         tagline: "modern metal cult",
         copyright: "© 2025 HEXES. All rights reserved."
     },
@@ -46,20 +46,20 @@ const CONFIG = {
         ],
         members: {
             vocalist: {
-                title: "Vocalist",
-                name: "Ale",
+                title: "Ale",
+                name: "voice",
                 power: "The Summoner",
                 image: "assets/images/members/vocalist.jpg"
             },
             drummer: {
-                title: "Drummer",
-                name: "Edo",
+                title: "Edo",
+                name: "drums",
                 power: "Rhythm Sorcerer",
                 image: "assets/images/members/drummer.jpg"
             },
             guitarist: {
-                title: "Guitarist",
-                name: "Al",
+                title: "Al",
+                name: "guitar",
                 power: "String Hexer",
                 image: "assets/images/members/guitarist.jpg"
             }
@@ -68,7 +68,7 @@ const CONFIG = {
     
     // Configuración del Hexed Oracle (tarot)
     tarot: {
-        title: "Oracle",
+        title: "oracle",
         description: "Receive your daily message through our mystical oracle. Each card contains a unique message inspired by our music and philosophy.",
         buttonText: "New Card",
         cardsPath: "./assets/data/tarot-cards.json"
