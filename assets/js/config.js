@@ -40,9 +40,9 @@ const CONFIG = {
     // Información de la banda
     band: {
         history: [
-            "Born from the darkness of the underground scene, HEXES emerges as a force that fuses the intensity of modern metal with mystical and conceptual elements that transcend music.",
-            "Each member brings their own \"hexagon\" of influences, creating a sound that is both brutal and melodic, both technical and accessible.",
-            "Our mission is to create not just music, but a complete experience that envelops our followers in a world of symbolism and sonic power."
+            "Emerging from the depths of modern metal's introspective landscape, HEXES is a dynamic project born in 2024 that weaves together existential narratives and intense sonic explorations.",
+            "Blending elements of nu metal, shoegaze, and djent, the band crafts a powerful sound that critiques the contemporary world through a dark, introspective lens.", 
+            "What began as a solo venture by vocalist Ale has transformed into a collaborative force pushing the boundaries of modern metal."
         ],
         members: {
             vocalist: {
