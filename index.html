@@ -22,18 +22,27 @@
     <link rel="stylesheet" href="./assets/css/hero.css">
     <link rel="stylesheet" href="./assets/css/social.css">
     <link rel="stylesheet" href="./assets/css/about.css">
-    <link rel="stylesheet" href="./assets/css/tarot.css">
+    <link rel="stylesheet" href="./assets/css/oracle.css">
     <link rel="stylesheet" href="./assets/css/footer.css">
     <link rel="stylesheet" href="./assets/css/hexagon-animation.css">
+    <link rel="stylesheet" href="./assets/css/language-selector.css">
 </head>
 <body>
+    <!-- Selector de idioma -->
+    <div class="language-selector">
+        <select id="language-selector" aria-label="Select language">
+            <option value="en">EN</option>
+            <option value="es">ES</option>
+        </select>
+    </div>
+    
     <!-- Navigation -->
     <nav id="main-nav">
         <div class="container nav-container">
             <a href="#" class="nav-logo">H E X E S</a>
             <div class="nav-links">
                 <a href="#about">about</a>
-                <a href="#tarot">oracle</a>
+                <a href="#oracle">oracle</a>
             </div>
             <div class="mobile-toggle">
                 <i class="fas fa-bars"></i>
@@ -99,26 +108,26 @@
         </div>
     </section>
     
-    <!-- Tarot Section -->
-    <section id="tarot">
+    <!-- Oracle Section -->
+    <section id="oracle">
         <div class="container">
             <h2 class="section-title">oracle</h2>
-            <div class="tarot-container">
-                <div class="tarot-description">
+            <div class="oracle-container">
+                <div class="oracle-description">
                     <p>Receive your daily message through our mystical oracle. Each card contains a unique message inspired by our music and philosophy.</p>
                 </div>
-                <div class="tarot-card">
-                    <div class="tarot-inner">
-                        <div class="tarot-front">
+                <div class="oracle-card">
+                    <div class="oracle-inner">
+                        <div class="oracle-front">
                             <!-- Front of card - Background image set in CSS -->
                         </div>
-                        <div class="tarot-back">
-                            <div class="tarot-symbol">
+                        <div class="oracle-back">
+                            <div class="oracle-symbol">
                                 <i class="fas fa-skull fa-3x"></i>
                             </div>
-                            <h3 class="tarot-title">The Spell</h3>
-                            <p class="tarot-message">The energy you project to the universe returns to you multiplied. Examine your intentions and make sure they are aligned with your true self.</p>
-                            <p class="tarot-quote">"What you give, you receive in eternal echo."</p>
+                            <h3 class="oracle-title">The Spell</h3>
+                            <p class="oracle-message">The energy you project to the universe returns to you multiplied. Examine your intentions and make sure they are aligned with your true self.</p>
+                            <p class="oracle-quote">"What you give, you receive in eternal echo."</p>
                         </div>
                     </div>
                 </div>
@@ -133,7 +142,7 @@
             <div class="footer-logo">H E X E S</div>
             <div class="footer-nav">
                 <a href="#about">about</a>
-                <a href="#tarot">oracle</a>
+                <a href="#oracle">oracle</a>
             </div>
             <h4 class="social-title">Follow us on</h4>
             <div class="footer-social">
@@ -151,8 +160,9 @@
     <script src="./assets/js/config.js"></script>
     
     <!-- Scripts -->
+    <script src="./assets/js/language.js"></script>
     <script src="./assets/js/navigation.js"></script>
-    <script src="./assets/js/tarot.js"></script>
+    <script src="./assets/js/oracle.js"></script>
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/hexagon-animation.js"></script>
 </body>

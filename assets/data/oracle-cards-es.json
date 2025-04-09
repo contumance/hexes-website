@@ -1,0 +1,44 @@
+[
+    {
+        "title": "El Hechizo",
+        "message": "La energía que proyectas al universo regresa a ti multiplicada. Examina tus intenciones y asegúrate de que estén alineadas con tu verdadero ser.",
+        "quote": "Lo que das, lo recibes en eterno eco.",
+        "symbol": "fas fa-skull"
+    },
+    {
+        "title": "La Sombra",
+        "message": "Enfrenta tus miedos y lo que has estado evitando. En la oscuridad, encontrarás respuestas que la luz no puede revelar.",
+        "quote": "Solo cuando abrazas tu oscuridad, encuentras tu verdadera luz.",
+        "symbol": "fas fa-moon"
+    },
+    {
+        "title": "El Ritual",
+        "message": "La consistencia y dedicación son tus aliadas ahora. Establece prácticas diarias que te acerquen a tus objetivos.",
+        "quote": "Cada acción repetida con intención se convierte en poder.",
+        "symbol": "fas fa-fire"
+    },
+    {
+        "title": "El Pacto",
+        "message": "Es hora de honrar tus compromisos y revisar lo que has prometido. La integridad es la base de tu poder personal.",
+        "quote": "Una promesa es una cadena que solo tú puedes romper o fortalecer.",
+        "symbol": "fas fa-handshake"
+    },
+    {
+        "title": "La Transformación",
+        "message": "Estás en un proceso de cambio profundo. Lo que dejas ir crea espacio para lo que está por venir.",
+        "quote": "De las cenizas del pasado, surgen las alas del futuro.",
+        "symbol": "fas fa-dragon"
+    },
+    {
+        "title": "La Comunión",
+        "message": "Conéctate con quienes resuenan con tu energía. Los verdaderos vínculos trascienden las relaciones ordinarias y se convierten en alianzas poderosas.",
+        "quote": "En el círculo correcto, tu llama arde más brillante.",
+        "symbol": "fas fa-users"
+    },
+    {
+        "title": "El Vacío",
+        "message": "Abraza el silencio y el vacío. Dentro de la nada yace el potencial para todo. Este es un tiempo para la introspección.",
+        "quote": "Del vacío, emerge toda la creación.",
+        "symbol": "fas fa-globe"
+    }
+]

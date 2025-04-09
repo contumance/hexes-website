@@ -9,7 +9,7 @@ Visit the site at: [https://username.github.io/hexes-website](https://username.g
 ## Features
 
 - Responsive design that works on all devices
-- Interactive Hexed Oracle tarot card experience
+- Interactive Hexed Oracle oracle card experience
 - Band member profiles with mystical abilities
 - Modular code structure for easy maintenance
 

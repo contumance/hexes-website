@@ -12,6 +12,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize loading of images
     initImageLoading();
+    
+    // Ensure fade-in elements are visible
+    ensureFadeInVisibility();
+    
+    // Initialize tooltips
+    initTooltips();
+    
+    // La inicialización de hexágonos ahora ocurre en su propio archivo
+    // No es necesario llamarlo desde aquí para evitar inicialización duplicada
 });
 
 // Apply configuration to DOM elements
@@ -19,38 +28,46 @@ function applyConfiguration() {
     // Update site title and meta
     document.title = `${CONFIG.site.name} - Modern Metal`;
     
-    // Update tagline
-    const tagline = document.querySelector('.tagline');
-    if (tagline) {
-        tagline.textContent = CONFIG.site.tagline;
+    // Actualizar tagline solo si no hay sistema de idiomas activo
+    if (!window.currentLanguage) {
+        const tagline = document.querySelector('.tagline');
+        if (tagline) {
+            tagline.textContent = CONFIG.site.tagline;
+        }
     }
     
-    // Update copyright
-    const copyright = document.querySelector('.copyright');
-    if (copyright) {
-        copyright.textContent = CONFIG.site.copyright;
+    // Actualizar copyright solo si no hay sistema de idiomas activo
+    if (!window.currentLanguage) {
+        const copyright = document.querySelector('.copyright');
+        if (copyright) {
+            copyright.textContent = CONFIG.site.copyright;
+        }
     }
     
-    // Update band info
-    const aboutContent = document.querySelector('.about-content');
-    if (aboutContent) {
-        const paragraphs = aboutContent.querySelectorAll('p');
-        CONFIG.band.history.forEach((text, index) => {
-            if (paragraphs[index]) {
-                paragraphs[index].textContent = text;
+    // Actualizar información de la banda solo si no hay sistema de idiomas activo
+    if (!window.currentLanguage) {
+        const aboutContent = document.querySelector('.about-content');
+        if (aboutContent) {
+            const paragraphs = aboutContent.querySelectorAll('p');
+            CONFIG.band.history.forEach((text, index) => {
+                if (paragraphs[index]) {
+                    paragraphs[index].textContent = text;
+                }
+            });
+        }
+    }
+    
+    // Actualizar información de miembros solo si no hay sistema de idiomas activo
+    if (!window.currentLanguage) {
+        for (const [role, member] of Object.entries(CONFIG.band.members)) {
+            const memberEl = document.querySelector(`.hex-item[data-member="${role}"]`);
+            if (memberEl) {
+                const titleEl = memberEl.querySelector('.hex-title');
+                const nameEl = memberEl.querySelector('.hex-subtitle');
+                
+                if (titleEl) titleEl.textContent = member.title;
+                if (nameEl) nameEl.textContent = member.name;
             }
-        });
-    }
-    
-    // Update member info
-    for (const [role, member] of Object.entries(CONFIG.band.members)) {
-        const memberEl = document.querySelector(`.hex-item[data-member="${role}"]`);
-        if (memberEl) {
-            const titleEl = memberEl.querySelector('.hex-title');
-            const nameEl = memberEl.querySelector('.hex-subtitle');
-            
-            if (titleEl) titleEl.textContent = member.title;
-            if (nameEl) nameEl.textContent = member.name;
         }
     }
 
@@ -271,25 +288,3 @@ function initTooltips() {
         });
     });
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Apply configuration
-    applyConfiguration();
-    
-    // Initialize animations
-    if (CONFIG.animations.enabled) {
-        initAnimations();
-    }
-    
-    // Initialize loading of images
-    initImageLoading();
-    
-    // Ensure fade-in elements are visible
-    ensureFadeInVisibility();
-    
-    // Initialize tooltips
-    initTooltips();
-    
-    // La inicialización de hexágonos ahora ocurre en su propio archivo
-    // No es necesario llamarlo desde aquí para evitar inicialización duplicada
-});

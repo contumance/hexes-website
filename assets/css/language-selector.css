@@ -1,0 +1,52 @@
+/* language-selector.css - Estilos para el selector de idiomas */
+.language-selector {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 1100;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.language-selector select {
+    background-color: rgba(20, 20, 20, 0.7);
+    color: var(--text-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    appearance: none;
+    transition: all 0.3s ease;
+}
+
+.language-selector select:hover {
+    background-color: rgba(40, 40, 40, 0.7);
+    border-color: var(--secondary-accent);
+}
+
+.language-selector select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(156, 39, 176, 0.3);
+}
+
+.language-selector::after {
+    content: "";
+    pointer-events: none;
+    font-size: 0.9rem;
+    margin-left: -25px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .language-selector {
+        top: 15px;
+        right: 60px; /* Dejar espacio para el botón de menú móvil */
+    }
+    
+    .language-selector select {
+        font-size: 0.8rem;
+        padding: 4px 6px;
+    }
+}

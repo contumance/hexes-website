@@ -66,12 +66,12 @@ const CONFIG = {
         }
     },
     
-    // Configuración del Hexed Oracle (tarot)
-    tarot: {
+    // Configuración del Hexed Oracle (oracle)
+    oracle: {
         title: "oracle",
         description: "Receive your daily message through our mystical oracle. Each card contains a unique message inspired by our music and philosophy.",
         buttonText: "New Card",
-        cardsPath: "./assets/data/tarot-cards.json"
+        cardsPath: "./assets/data/oracle-cards.json"
     },
     
     // Opciones de animación
@@ -86,7 +86,7 @@ const CONFIG = {
     media: {
         heroBg: "/assets/images/background/hero-bg.jpg",
         aboutImage: "/assets/images/background/band-image.jpg",
-        cardBack: "/assets/images/tarot/card-back.jpg"
+        cardBack: "/assets/images/oracle/card-back.jpg"
     }
 };
 

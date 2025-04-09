@@ -1,0 +1,86 @@
+{
+    "en": {
+      "nav": {
+        "about": "about",
+        "oracle": "oracle"
+      },
+      "hero": {
+        "tagline": "modern metal cult",
+        "cta": "Discover our world"
+      },
+      "about": {
+        "title": "about",
+        "bandTitle": "Band",
+        "story": [
+          "Emerging from the depths of modern metal's introspective landscape, HEXES is a dynamic project born in 2024 that weaves together existential narratives and intense sonic explorations.",
+          "Blending elements of nu metal, shoegaze, and djent, the band crafts a powerful sound that critiques the contemporary world through a dark, introspective lens.", 
+          "What began as a solo venture by vocalist Ale has transformed into a collaborative force pushing the boundaries of modern metal."
+        ],
+        "members": {
+          "vocalist": {
+            "power": "The Summoner",
+            "tooltip": "The creative mastermind behind HEXES, transforming existential thoughts and social critiques into powerful musical narratives."
+          },
+          "drummer": {
+            "power": "Rhythm Sorcerer",
+            "tooltip": "The rhythmic engine of the band, delivering complex and precise drum arrangements that drive HEXES's intense sound."
+          },
+          "guitarist": {
+            "power": "String Hexer",
+            "tooltip": "Djent-inspired guitar, crafting modern sonic textures that define the band's cutting-edge musical approach."
+          }
+        }
+      },
+      "oracle": {
+        "title": "oracle",
+        "description": "Receive your daily message through our mystical oracle. Each card contains a unique message inspired by our music and philosophy.",
+        "button": "New Card"
+      },
+      "footer": {
+        "follow": "Follow us on",
+        "copyright": "© 2025 HEXES. All rights reserved."
+      }
+    },
+    "es": {
+      "nav": {
+        "about": "nosotros",
+        "oracle": "oráculo"
+      },
+      "hero": {
+        "tagline": "Metal contemporáneo de culto",
+        "cta": "Desciende al hexágono"
+      },
+      "about": {
+        "title": "nosotros",
+        "bandTitle": "Banda",
+        "story": [
+          "Emergiendo de las profundidades del panorama introspectivo del metal moderno, HEXES es un proyecto dinámico nacido en 2024 que entreteje narrativas existenciales y exploraciones sonoras intensas.",
+          "Fusionando elementos de nu metal, shoegaze y djent, la banda crea un sonido poderoso que critica el mundo contemporáneo a través de una lente oscura e introspectiva.", 
+          "Lo que comenzó como un proyecto en solitario del vocalista Ale se ha transformado en una fuerza colaborativa que se materializa en poderosas canciones."
+        ],
+        "members": {
+          "vocalist": {
+            "power": "Ale",
+            "tooltip": "mente creativa detrás de HEXES, transformando pensamientos existenciales y críticas sociales en poderosas narrativas musicales."
+          },
+          "drummer": {
+            "power": "Edo",
+            "tooltip": "entregando arreglos de batería complejos y precisos que impulsan el sonido intenso de HEXES."
+          },
+          "guitarist": {
+            "power": "Al",
+            "tooltip": "inspirado en el djent, creando texturas sonoras modernas que definen el enfoque vanguardista musical de la banda."
+          }
+        }
+      },
+      "oracle": {
+        "title": "oráculo",
+        "description": "Recibe tu mensaje diario a través de nuestro oráculo místico. Cada carta contiene un mensaje único inspirado en nuestra música y filosofía.",
+        "button": "Nueva Carta"
+      },
+      "footer": {
+        "follow": "Síguenos en",
+        "copyright": "© 2025 HEXES. Todos los derechos reservados."
+      }
+    }
+  }

@@ -11,22 +11,22 @@ hexes-website/
 │   │   ├── navigation.css  # Estilos de navegación
 │   │   ├── social.css      # Estilos sección social
 │   │   ├── about.css       # Estilos sección about
-│   │   ├── tarot.css       # Estilos sección tarot
+│   │   ├── oracle.css       # Estilos sección oracle
 │   │   └── footer.css      # Estilos footer
 │   │
 │   ├── js/                 # Archivos JavaScript
 │   │   ├── main.js         # JavaScript principal
 │   │   ├── navigation.js   # Funcionalidad de navegación
-│   │   └── tarot.js        # Funcionalidad del tarot
+│   │   └── oracle.js        # Funcionalidad del oracle
 │   │
 │   ├── images/             # Imágenes
 │   │   ├── logo/           # Logo de Hexes
 │   │   ├── members/        # Fotos de los miembros
 │   │   ├── background/     # Fondos y texturas
 │   │   ├── social/         # Imágenes para redes sociales
-│   │   └── tarot/          # Imágenes para las cartas
+│   │   └── oracle/          # Imágenes para las cartas
 │   │
 │   └── data/               # Datos en formato JSON
-│       └── tarot-cards.json # Datos de las cartas de tarot
+│       └── oracle-cards.json # Datos de las cartas de oracle
 │
 └── favicon.ico             # Favicon del sitio
