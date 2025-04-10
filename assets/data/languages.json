@@ -23,7 +23,7 @@
           },
           "drummer": {
             "power": "Rhythm Sorcerer",
-            "tooltip": "The rhythmic engine of the band, delivering complex and precise drum arrangements that drive HEXES's intense sound."
+            "tooltip": "The rhythmic engine of the band, delivering intense and precise drum arrangements that drive HEXES's intense sound."
           },
           "guitarist": {
             "power": "String Hexer",
@@ -33,7 +33,7 @@
       },
       "oracle": {
         "title": "oracle",
-        "description": "Receive your daily message through our mystical oracle. Each card contains a unique message inspired by our music and philosophy.",
+        "description": "Resonates with a daily message through our oracle. Each card contains a unique message inspired by our music and philosophy.",
         "button": "New Card"
       },
       "footer": {
@@ -54,9 +54,9 @@
         "title": "nosotros",
         "bandTitle": "Banda",
         "story": [
-          "Emergiendo de las profundidades del panorama introspectivo del metal moderno, HEXES es un proyecto dinámico nacido en 2024 que entreteje narrativas existenciales y exploraciones sonoras intensas.",
-          "Fusionando elementos de nu metal, shoegaze y djent, la banda crea un sonido poderoso que critica el mundo contemporáneo a través de una lente oscura e introspectiva.", 
-          "Lo que comenzó como un proyecto en solitario del vocalista Ale se ha transformado en una fuerza colaborativa que se materializa en poderosas canciones."
+          "Emergiendo desde un lugar mas introspectivo del metal moderno, HEXES es un proyecto dinámico nacido en 2024 que entreteje narrativas existenciales y exploraciones sonoras intensas.",
+          "Fusionando elementos de nu metal, shoegaze, djent y electrónica, la banda crea un sonido poderoso que critica el mundo contemporáneo a través de una lente oscura e introspectiva.", 
+          "Lo que comenzó como un proyecto en solitario de Ale se ha transformado en una fuerza colaborativa que se materializa en poderosas canciones."
         ],
         "members": {
           "vocalist": {
@@ -65,7 +65,7 @@
           },
           "drummer": {
             "power": "Edo",
-            "tooltip": "entregando arreglos de batería complejos y precisos que impulsan el sonido intenso de HEXES."
+            "tooltip": "entregando arreglos de batería potentes y precisos que impulsan el sonido intenso de HEXES."
           },
           "guitarist": {
             "power": "Al",
@@ -75,7 +75,7 @@
       },
       "oracle": {
         "title": "oráculo",
-        "description": "Recibe tu mensaje diario a través de nuestro oráculo místico. Cada carta contiene un mensaje único inspirado en nuestra música y filosofía.",
+        "description": "Resuena con un mensaje diario a través de nuestro oráculo. Cada carta contiene un mensaje único inspirado en nuestra música y filosofía.",
         "button": "Nueva Carta"
       },
       "footer": {
