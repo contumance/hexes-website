@@ -1,4 +1,41 @@
-// oracle.js - Versión actualizada para usar la configuración centralizada e incluir soporte de idiomas
+// Actualizar el texto del botón cuando cambia el idioma
+document.addEventListener('languageChanged', function(e) {
+    // Actualizar el texto del botón según el idioma
+    if (randomButton && window.translations && window.currentLanguage) {
+        const lang = window.currentLanguage;
+        if (window.translations[lang] && window.translations[lang].oracle) {
+            randomButton.textContent = window.translations[lang].oracle.button;
+        }
+    }
+});// Función explícita para actualizar el oracle al cambiar el idioma
+// Esta función puede ser llamada directamente desde language.js
+function updateOracleForLanguage() {
+    // Obtener el índice de carta almacenado
+    const storedCardIndex = localStorage.getItem('oracleCardIndex');
+    if (storedCardIndex !== null) {
+        const index = parseInt(storedCardIndex);
+        
+        // Actualizar la carta con el nuevo idioma
+        setTimeout(() => {
+            displayOracleCard(index);
+            
+            // Si la carta está volteada, mantenerla así
+            if (oracleInner && 
+                (oracleInner.style.transform === 'rotateY(180deg)' || 
+                 getComputedStyle(oracleInner).transform.includes('180'))) {
+                // Ya está girada, no hacemos nada
+            } else {
+                // Si no está girada, la giramos para mostrar el contenido
+                setTimeout(() => {
+                    if (oracleInner) oracleInner.style.transform = 'rotateY(180deg)';
+                }, 300);
+            }
+        }, 100);
+    }
+}
+
+// Exponer la función globalmente para que language.js pueda acceder a ella
+window.updateOracleForLanguage = updateOracleForLanguage;// oracle.js - Versión actualizada para usar la configuración centralizada e incluir soporte de idiomas
 
 // DOM Elements
 const randomButton = document.querySelector('.random-button');
@@ -40,9 +77,13 @@ async function loadOracleCards() {
 // Obtener las cartas según el idioma actual
 function getCardsByLanguage() {
     // Verificar si existe la variable global currentLanguage (definida en language.js)
-    if (window.currentLanguage === 'es' && oracleCardsES.length > 0) {
+    const currentLang = window.currentLanguage || 'en';
+    
+    if (currentLang === 'es' && oracleCardsES && oracleCardsES.length > 0) {
+        console.log('Usando cartas en español');
         return oracleCardsES;
     } else {
+        console.log('Usando cartas en inglés');
         return oracleCards;
     }
 }
@@ -122,7 +163,9 @@ function resetCardPosition() {
 function initOracle() {
     // Update button text from config or language file
     if (randomButton) {
-        if (window.translations && window.currentLanguage && window.translations[window.currentLanguage]) {
+        if (window.translations && window.currentLanguage && 
+            window.translations[window.currentLanguage] && 
+            window.translations[window.currentLanguage].oracle) {
             randomButton.textContent = window.translations[window.currentLanguage].oracle.button;
         } else {
             randomButton.textContent = CONFIG.oracle.buttonText;
@@ -150,10 +193,29 @@ if (oracleInner) {
 
 // Forzar actualización de la carta cuando cambia el idioma
 document.addEventListener('languageChanged', function(e) {
-    // Solo actualizar si la carta ya está mostrada (girada)
-    if (oracleInner && oracleInner.style.transform === 'rotateY(180deg)') {
-        const index = parseInt(localStorage.getItem('oracleCardIndex')) || 0;
-        displayOracleCard(index);
+    // Siempre actualizar la carta actual cuando cambie el idioma
+    const storedCardIndex = localStorage.getItem('oracleCardIndex');
+    if (storedCardIndex !== null) {
+        const index = parseInt(storedCardIndex);
+        
+        // Primero, asegurar que usamos las cartas del nuevo idioma
+        const cards = getCardsByLanguage();
+        
+        // Solo si tenemos cartas válidas y el índice es válido
+        if (cards && cards.length > 0 && index >= 0 && index < cards.length) {
+            // Forzar actualización incluso si la carta no está girada
+            displayOracleCard(index);
+            
+            // Si la carta está mostrada (girada), mantenerla así
+            if (oracleInner && oracleInner.style.transform === 'rotateY(180deg)') {
+                // Mantenemos la carta girada
+            } else {
+                // Si no está girada, la giramos para mostrar el nuevo contenido
+                setTimeout(() => {
+                    if (oracleInner) oracleInner.style.transform = 'rotateY(180deg)';
+                }, 300);
+            }
+        }
     }
 });
 

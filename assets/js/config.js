@@ -20,11 +20,6 @@ const CONFIG = {
     
     // Redes sociales
     social: {
-        instagram: {
-            url: "https://instagram.com/hexes.cult",
-            title: "Instagram",
-            description: "Exclusive images, daily stories, and visual content from the world of HEXES."
-        },
         youtube: {
             url: "https://youtube.com/hexesband",
             title: "YouTube",
@@ -34,6 +29,16 @@ const CONFIG = {
             url: "https://open.spotify.com/artist/hexesband",
             title: "Spotify",
             description: "Listen to our songs, curated playlists, and exclusive previews."
+        },
+        bandcamp: {
+            url: "https://bandcamp.com/artist/hexesband",
+            title: "Bandcamp",
+            description: "Listen to our songs, curated playlists, and exclusive previews."
+        },
+        instagram: {
+            url: "https://instagram.com/hexes.cult",
+            title: "Instagram",
+            description: "Exclusive images, daily stories, and visual content from the world of HEXES."
         }
     },
     
