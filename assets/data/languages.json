@@ -18,15 +18,15 @@
         ],
         "members": {
           "vocalist": {
-            "power": "The Summoner",
+            "power": "desc",
             "tooltip": "The creative mastermind behind HEXES, transforming existential thoughts and social critiques into powerful musical narratives."
           },
           "drummer": {
-            "power": "Rhythm Sorcerer",
+            "power": "desc",
             "tooltip": "The rhythmic engine of the band, delivering intense and precise drum arrangements that drive HEXES's intense sound."
           },
           "guitarist": {
-            "power": "String Hexer",
+            "power": "desc",
             "tooltip": "Djent-inspired guitar, crafting modern sonic textures that define the band's cutting-edge musical approach."
           }
         }
@@ -60,16 +60,16 @@
         ],
         "members": {
           "vocalist": {
-            "power": "Ale",
-            "tooltip": "mente creativa detrás de HEXES, transformando pensamientos existenciales y críticas sociales en poderosas narrativas musicales."
+            "power": "desc",
+            "tooltip": "Mente creativa detrás de HEXES, transformando pensamientos existenciales y críticas sociales en poderosas narrativas musicales."
           },
           "drummer": {
-            "power": "Edo",
-            "tooltip": "entregando arreglos de batería potentes y precisos que impulsan el sonido intenso de HEXES."
+            "power": "desc",
+            "tooltip": "Entregando arreglos de batería potentes y precisos que impulsan el sonido intenso de HEXES."
           },
           "guitarist": {
-            "power": "Al",
-            "tooltip": "inspirado en el djent, creando texturas sonoras modernas que definen el enfoque vanguardista musical de la banda."
+            "power": "desc",
+            "tooltip": "Inspirado en el djent, creando texturas sonoras modernas que definen el enfoque vanguardista musical de la banda."
           }
         }
       },
