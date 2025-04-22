@@ -49,9 +49,14 @@ const oracleInner = document.querySelector('.oracle-inner');
 let oracleCards = [];
 let oracleCardsES = [];
 
-// Función para cargar las cartas desde el JSON
+// En oracle.js - Asegurarse de que las cartas se carguen después de las traducciones
 async function loadOracleCards() {
     try {
+        // Esperar a que las traducciones estén cargadas primero
+        if (window.loadTranslations) {
+            await window.loadTranslations();
+        }
+        
         // Cargar cartas en inglés (predeterminado)
         const response = await fetch(CONFIG.oracle.cardsPath);
         if (!response.ok) {
@@ -64,6 +69,8 @@ async function loadOracleCards() {
         if (responseES.ok) {
             oracleCardsES = await responseES.json();
         }
+        
+        console.log('Cartas del oráculo cargadas correctamente');
         
         // Inicializar el oracle si la página ya está cargada
         if (document.readyState === 'complete' || document.readyState === 'interactive') {

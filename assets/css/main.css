@@ -131,3 +131,10 @@ section {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Clase de respaldo para forzar visibilidad */
+.force-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+}

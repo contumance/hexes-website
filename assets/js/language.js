@@ -4,21 +4,37 @@
 let translations = {};
 let currentLanguage = 'en'; // Idioma por defecto: inglés
 
-// Cargar el archivo de traducciones
-async function loadTranslations() {
-    try {
-        const response = await fetch('./assets/data/languages.json');
-        if (!response.ok) {
-            throw new Error(`Error al cargar traducciones: ${response.status}`);
-        }
-        translations = await response.json();
-        console.log('Traducciones cargadas correctamente');
-        
-        // Inicializar con el idioma guardado o el predeterminado
-        initializeLanguage();
-    } catch (error) {
-        console.error('Error cargando traducciones:', error);
+// En language.js - Convertir a una promesa para mejor control
+let translationsLoaded = false;
+let translationsPromise = null;
+
+function loadTranslations() {
+    console.log('Cargando traducciones...');
+    
+    if (translationsPromise) {
+        return translationsPromise;
     }
+    
+    translationsPromise = new Promise(async (resolve, reject) => {
+        try {
+            const response = await fetch('./assets/data/languages.json');
+            if (!response.ok) {
+                throw new Error(`Error al cargar traducciones: ${response.status}`);
+            }
+            translations = await response.json();
+            console.log('Traducciones cargadas correctamente');
+            translationsLoaded = true;
+            
+            // Inicializar con el idioma guardado o el predeterminado
+            initializeLanguage();
+            resolve(translations);
+        } catch (error) {
+            console.error('Error cargando traducciones:', error);
+            reject(error);
+        }
+    });
+    
+    return translationsPromise;
 }
 
 // Inicializar idioma

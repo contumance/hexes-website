@@ -141,15 +141,35 @@ function ensureFadeInVisibility() {
     // Solución de respaldo para asegurarse de que los elementos fade-in son visibles 
     // incluso si las animaciones fallan
     setTimeout(function() {
-      document.querySelectorAll('.fade-in').forEach(el => {
-        if (window.getComputedStyle(el).opacity < 0.1) {
-          console.log('Corrigiendo visibilidad para elemento fade-in', el);
-          el.style.opacity = '1';
-          el.style.transform = 'none';
-        }
-      });
-    }, 500); // Un retraso un poco mayor para dar tiempo a las animaciones normales
-  }
+        document.querySelectorAll('.fade-in').forEach(el => {
+            if (window.getComputedStyle(el).opacity < 0.1) {
+                console.log('Corrigiendo visibilidad para elemento fade-in', el);
+                el.classList.add('force-visible');
+            }
+        });
+        
+        // Asegurarse específicamente de que las secciones críticas sean visibles
+        document.querySelectorAll('#about, #oracle').forEach(section => {
+            section.classList.add('force-visible');
+            section.querySelectorAll('.container, .about-container, .oracle-container').forEach(container => {
+                container.classList.add('force-visible');
+            });
+        });
+    }, 1000);
+    
+    // También verificar después de un tiempo más largo por si acaso
+    setTimeout(function() {
+        document.querySelectorAll('#about, #oracle').forEach(section => {
+            if (window.getComputedStyle(section).opacity < 0.9) {
+                section.classList.add('force-visible');
+                section.querySelectorAll('*').forEach(el => {
+                    el.classList.add('force-visible');
+                });
+                console.log('Forzando visibilidad en sección crítica:', section.id);
+            }
+        });
+    }, 3000);
+}
 
 // Initialize image loading
 // En main.js, función initImageLoading()
