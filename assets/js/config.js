@@ -26,7 +26,7 @@ const CONFIG = {
             description: "Exclusive images, daily stories, and visual content from the world of HEXES."
         },
         youtube: {
-            url: "https://youtube.com/hexesband",
+            url: "https://youtube.com/hexescult",
             title: "YouTube",
             description: "Music videos, live sessions, and exclusive behind-the-scenes content."
         },
