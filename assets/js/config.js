@@ -21,22 +21,22 @@ const CONFIG = {
     // Redes sociales
     social: {
         youtube: {
-            url: "https://youtube.com/hexesband",
+            url: "https://youtube.com/hexescult",
             title: "YouTube",
             description: "Music videos, live sessions, and exclusive behind-the-scenes content."
         },
         spotify: {
-            url: "https://open.spotify.com/artist/hexesband",
+            url: "https://open.spotify.com/artist/hexescult",
             title: "Spotify",
             description: "Listen to our songs, curated playlists, and exclusive previews."
         },
         bandcamp: {
-            url: "https://bandcamp.com/artist/hexesband",
+            url: "https://bandcamp.com/artist/hexescult",
             title: "Bandcamp",
             description: "Listen to our songs, curated playlists, and exclusive previews."
         },
         instagram: {
-            url: "https://instagram.com/hexes.cult",
+            url: "https://instagram.com/hexescult",
             title: "Instagram",
             description: "Exclusive images, daily stories, and visual content from the world of HEXES."
         }
