@@ -21,7 +21,7 @@ const CONFIG = {
     // Redes sociales
     social: {
         instagram: {
-            url: "https://instagram.com/hexes.cult",
+            url: "https://instagram.com/hexescult",
             title: "Instagram",
             description: "Exclusive images, daily stories, and visual content from the world of HEXES."
         },
